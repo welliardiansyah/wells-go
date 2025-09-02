@@ -9,7 +9,7 @@ import (
 	"os"
 	"time"
 	"wells-go/infrastructure/config"
-	"wells-go/infrastructure/middleware"
+	"wells-go/util/cors"
 )
 
 func init() {
@@ -76,7 +76,7 @@ func (server *Server) setupRouter(db *sql.DB) {
 	router := gin.Default()
 	log.Println("[INFO] Gin router initialized.")
 
-	router.Use(middleware.CORSMiddleware(server.Config))
+	router.Use(cors.CORSMiddleware(server.Config))
 	router.Use(LoggingMiddleware())
 
 	// ====================================================================================

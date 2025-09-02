@@ -7,8 +7,8 @@ import (
 	"time"
 	"wells-go/infrastructure/config"
 	"wells-go/infrastructure/database"
-	"wells-go/infrastructure/middleware"
 	"wells-go/interfaces/http"
+	"wells-go/util/cors"
 
 	"github.com/gin-gonic/gin"
 	"github.com/rs/zerolog"
@@ -45,9 +45,9 @@ func main() {
 	fmt.Println("✅ PostgreSQL (Raw SQL) connected successfully")
 
 	r := gin.Default()
-	r.Use(middleware.CORSMiddleware(cfg))
+	r.Use(cors.CORSMiddleware(cfg))
 
-	server, err := http.NewServer(database.GetPool(), cfg, r, middleware.CORSMiddleware(cfg))
+	server, err := http.NewServer(database.GetPool(), cfg, r, cors.CORSMiddleware(cfg))
 	if err != nil {
 		log.Fatal().Err(err).Msg("❌ Cannot create HTTP server")
 	}
