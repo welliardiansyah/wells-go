@@ -1,14 +1,15 @@
 package http
 
 import (
-	"database/sql"
 	"fmt"
 	"github.com/gin-gonic/gin"
+	"gorm.io/gorm"
 	"io"
 	"log"
 	"os"
 	"time"
 	"wells-go/infrastructure/config"
+	"wells-go/interfaces/http/users"
 	"wells-go/util/cors"
 )
 
@@ -30,21 +31,18 @@ func init() {
 	}
 
 	multiWriter := io.MultiWriter(os.Stdout, file)
-
 	log.SetOutput(multiWriter)
 	log.SetFlags(log.LstdFlags | log.Lshortfile)
-
 	log.Println("[INFO] Logging initialized. Outputting to terminal and file.")
 }
 
 type Server struct {
-	Config      *config.Config
-	Store       *sql.DB
-	Engine      *gin.Engine
-	RouterGroup *gin.RouterGroup
+	Config *config.Config
+	DB     *gorm.DB
+	Engine *gin.Engine
 }
 
-func NewServer(db *sql.DB, config *config.Config, r *gin.Engine, cors gin.HandlerFunc) (*Server, error) {
+func NewServer(db *gorm.DB, config *config.Config, r *gin.Engine, cors gin.HandlerFunc) (*Server, error) {
 	log.Println("[INFO] Initializing server...")
 
 	if cors != nil {
@@ -52,7 +50,7 @@ func NewServer(db *sql.DB, config *config.Config, r *gin.Engine, cors gin.Handle
 	}
 
 	server := &Server{
-		Store:  db,
+		DB:     db,
 		Config: config,
 		Engine: r,
 	}
@@ -72,7 +70,7 @@ func LoggingMiddleware() gin.HandlerFunc {
 	}
 }
 
-func (server *Server) setupRouter(db *sql.DB) {
+func (server *Server) setupRouter(db *gorm.DB) {
 	router := gin.Default()
 	log.Println("[INFO] Gin router initialized.")
 
@@ -82,9 +80,10 @@ func (server *Server) setupRouter(db *sql.DB) {
 	// ====================================================================================
 	// Public Routes Group: These routes do NOT require JWT or Android Key authentication.
 	// ====================================================================================
-	//publicRoutes := router.Group("")
-	//log.Println("[INFO] Setting up BNI route (Public)...")
-	//bniRoute.SetupBNIRouter(db, publicRoutes, server.Config)
+	publicRoutes := router.Group("")
+	users.RouteUsers(db, publicRoutes, server.Config)
+
+	server.Engine = router
 }
 
 func (server *Server) Start(address string) error {

@@ -38,16 +38,16 @@ func main() {
 		log.Fatal().Err(err).Msg("Invalid DB port")
 	}
 
-	err = database.ConnectRawSQL(cfg.DbUser, cfg.DbPassword, cfg.DbHost, cfg.DbName, port)
+	err = database.ConnectGorm(cfg.DbUser, cfg.DbPassword, cfg.DbHost, cfg.DbName, port)
 	if err != nil {
-		log.Fatal().Err(err).Msg("❌ Error connecting to PostgreSQL DB")
+		log.Fatal().Err(err).Msg("❌ Error connecting to PostgreSQL DB (GORM)")
 	}
-	fmt.Println("✅ PostgreSQL (Raw SQL) connected successfully")
+	fmt.Println("✅ PostgreSQL (GORM) connected successfully")
 
 	r := gin.Default()
 	r.Use(cors.CORSMiddleware(cfg))
 
-	server, err := http.NewServer(database.GetPool(), cfg, r, cors.CORSMiddleware(cfg))
+	server, err := http.NewServer(database.GetGormDB(), cfg, r, cors.CORSMiddleware(cfg))
 	if err != nil {
 		log.Fatal().Err(err).Msg("❌ Cannot create HTTP server")
 	}

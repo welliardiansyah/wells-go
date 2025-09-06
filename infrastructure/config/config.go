@@ -34,7 +34,12 @@ type Config struct {
 	ServerPort           string `mapstructure:"SERVER_PORT"`
 	DBSource             string `mapstructure:"DB_SOURCE"`
 	HTTPServerAddress    string `mapstructure:"HTTP_SERVER_ADDRESS"`
-	AndroidKey           string `mapstructure:"ANDROID_KEY"`
+
+	// 🔑 JWT Config
+	JWTSecret       string `mapstructure:"JWT_SECRET"`
+	JWTIssuer       string `mapstructure:"JWT_ISSUER"`
+	AccessTokenTTL  string `mapstructure:"ACCESS_TOKEN_TTL"`
+	RefreshTokenTTL string `mapstructure:"REFRESH_TOKEN_TTL"`
 }
 
 func LoadConfig(path string) (config Config, err error) {
