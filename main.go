@@ -8,6 +8,7 @@ import (
 	"wells-go/domain/migrate"
 	"wells-go/infrastructure/config"
 	"wells-go/infrastructure/database"
+	"wells-go/infrastructure/redis"
 	"wells-go/interfaces/http"
 	"wells-go/util/cors"
 	"wells-go/util/security"
@@ -22,6 +23,8 @@ func main() {
 		Out:        os.Stderr,
 		TimeFormat: time.RFC3339,
 	})
+
+	redis.InitRedis()
 
 	cfg := config.GetConfig()
 	fmt.Println("✅ Environment Loaded:", cfg.Environment)
@@ -45,7 +48,7 @@ func main() {
 	r := gin.Default()
 	r.Use(cors.CORSMiddleware(cfg))
 
-	jwtMaker, err := security.NewJWTMaker(cfg.JWTSecret, cfg.JWTIssuer)
+	jwtMaker, err := security.NewJWTMaker(cfg.JWTSecret, cfg.JWTIssuer, redis.Rdb)
 	if err != nil {
 		log.Fatal().Err(err).Msg("❌ Cannot create JWT maker")
 	}

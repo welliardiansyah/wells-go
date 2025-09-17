@@ -34,6 +34,8 @@ type Config struct {
 	ServerPort           string `mapstructure:"SERVER_PORT"`
 	DBSource             string `mapstructure:"DB_SOURCE"`
 	HTTPServerAddress    string `mapstructure:"HTTP_SERVER_ADDRESS"`
+	REDIS_ADDR           string `mapstructure:"REDIS_ADDR"`
+	REDIS_PASSWORD       string `mapstructure:"REDIS_PASSWORD"`
 
 	// 🔑 JWT Config
 	JWTSecret       string `mapstructure:"JWT_SECRET"`

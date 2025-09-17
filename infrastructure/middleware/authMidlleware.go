@@ -4,6 +4,7 @@ import (
 	"net/http"
 	"strings"
 	"time"
+	"wells-go/infrastructure/redis"
 	"wells-go/response"
 	"wells-go/util/security"
 
@@ -29,6 +30,14 @@ func AuthMiddleware(maker security.Maker) gin.HandlerFunc {
 		}
 
 		tokenStr := parts[1]
+
+		val, err := redis.Rdb.Get(redis.Ctx, "jwt:"+tokenStr).Result()
+		if err != nil || val != "active" {
+			response.ErrorResponse(c.Writer, http.StatusUnauthorized, "Token revoked or not found in cache", nil, startedAt)
+			c.Abort()
+			return
+		}
+
 		payload, err := maker.VerifyToken(tokenStr)
 		if err != nil {
 			response.ErrorResponse(c.Writer, http.StatusUnauthorized, "Invalid or expired token", err.Error(), startedAt)
