@@ -6,10 +6,12 @@ type LoginRequest struct {
 }
 
 type UserResponse struct {
-	ID    string `json:"id"`
-	Name  string `json:"name"`
-	Email string `json:"email"`
-	Role  string `json:"role"`
+	ID          string   `json:"id"`
+	Name        string   `json:"name"`
+	Email       string   `json:"email"`
+	RoleId      string   `json:"role_id"`
+	Role        string   `json:"role"`
+	Permissions []string `json:"permissions"`
 }
 
 type RegisterUserRequest struct {
@@ -18,5 +20,5 @@ type RegisterUserRequest struct {
 	OldPassword     string `json:"old_password,omitempty"`
 	Password        string `json:"password" binding:"required,min=6"`
 	ConfirmPassword string `json:"confirm_password" binding:"required,min=6"`
-	Role            string `json:"role,omitempty"`
+	Role            string `json:"role"`
 }

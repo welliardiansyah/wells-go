@@ -10,6 +10,6 @@ func ToUserResponse(user *entities.UserEntity) dtos.UserResponse {
 		ID:    user.ID.String(),
 		Name:  user.Fullname,
 		Email: user.Email,
-		Role:  user.Role,
+		Role:  user.Role.Name,
 	}
 }

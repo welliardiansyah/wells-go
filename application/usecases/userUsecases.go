@@ -9,19 +9,26 @@ import (
 	"wells-go/domain/entities"
 	"wells-go/domain/repositories"
 	"wells-go/infrastructure/config"
+	"wells-go/util/security"
 
-	"github.com/golang-jwt/jwt/v5"
 	"github.com/google/uuid"
 	"golang.org/x/crypto/bcrypt"
 )
 
 type UserUsecase struct {
-	repo repositories.UserRepository
-	cfg  *config.Config
+	repo     repositories.UserRepository
+	repoRole repositories.RoleRepository
+	cfg      *config.Config
+	security security.Maker
 }
 
-func NewUserUsecase(repo repositories.UserRepository, cfg *config.Config) *UserUsecase {
-	return &UserUsecase{repo: repo, cfg: cfg}
+func NewUserUsecase(repo repositories.UserRepository, repoRole repositories.RoleRepository, cfg *config.Config, securityMaker security.Maker) *UserUsecase {
+	return &UserUsecase{
+		repo:     repo,
+		repoRole: repoRole,
+		cfg:      cfg,
+		security: securityMaker,
+	}
 }
 
 func (uc *UserUsecase) Register(req dtos.RegisterUserRequest) (dtos.UserResponse, error) {
@@ -33,19 +40,30 @@ func (uc *UserUsecase) Register(req dtos.RegisterUserRequest) (dtos.UserResponse
 	if req.Password != req.ConfirmPassword {
 		return dtos.UserResponse{}, errors.New("password dan konfirmasi password tidak sama")
 	}
-
 	if req.Password == strings.ToLower(req.Password) {
-		return dtos.UserResponse{}, errors.New("password tidak boleh semua huruf kecil, gunakan kombinasi huruf besar/kecil/angka/simbol")
+		return dtos.UserResponse{}, errors.New("password harus kombinasi huruf besar/kecil/angka/simbol")
+	}
+
+	roleID, err := uuid.Parse(req.Role)
+	if err != nil {
+		return dtos.UserResponse{}, errors.New("role ID tidak valid")
+	}
+
+	roleEntity, err := uc.repoRole.FindByID(roleID)
+	if err != nil || roleEntity == nil {
+		return dtos.UserResponse{}, errors.New("role tidak ditemukan")
 	}
 
 	hash, _ := bcrypt.GenerateFromPassword([]byte(req.Password), bcrypt.DefaultCost)
 
 	user := entities.UserEntity{
-		ID:        uuid.New(),
-		Fullname:  req.Name,
-		Email:     req.Email,
+		ID:       uuid.New(),
+		Fullname: req.Name,
+		Email:    req.Email,
+		//Phone:     req.Phone,
 		Password:  string(hash),
-		Role:      req.Role,
+		RoleId:    roleEntity.ID,
+		Role:      *roleEntity,
 		CreatedAt: time.Now(),
 		UpdatedAt: time.Now(),
 	}
@@ -66,15 +84,34 @@ func (uc *UserUsecase) Login(req dtos.LoginRequest) (string, error) {
 	if bcrypt.CompareHashAndPassword([]byte(user.Password), []byte(req.Password)) != nil {
 		return "", errors.New("invalid credentials")
 	}
-
-	claims := jwt.MapClaims{
-		"sub":   user.ID.String(),
-		"email": user.Email,
-		"role":  user.Role,
-		"exp":   time.Now().Add(24 * time.Hour).Unix(),
+	
+	roles := []string{user.Role.Name}
+	perms := []security.Permission{}
+	for _, p := range user.Role.Permissions {
+		perms = append(perms, security.Permission{
+			Name:      p.Name,
+			CanCreate: p.CanCreate,
+			CanRead:   p.CanRead,
+			CanUpdate: p.CanUpdate,
+			CanDelete: p.CanDelete,
+			CanExport: p.CanExport,
+			CanImport: p.CanImport,
+			CanView:   p.CanView,
+		})
 	}
-	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
-	return token.SignedString([]byte(uc.cfg.JWTSecret))
+
+	token, err := uc.security.CreateToken(
+		user.ID.String(),
+		user.Email,
+		roles,
+		perms,
+		24*time.Hour,
+	)
+	if err != nil {
+		return "", err
+	}
+
+	return token, nil
 }
 
 func (uc *UserUsecase) GetUsers() ([]dtos.UserResponse, error) {
@@ -117,22 +154,19 @@ func (uc *UserUsecase) UpdateUser(id string, req dtos.RegisterUserRequest) (dtos
 
 	if req.Password != "" {
 		if req.OldPassword == "" {
-			return dtos.UserResponse{}, errors.New("old password wajib diisi untuk update password")
+			return dtos.UserResponse{}, errors.New("old password wajib diisi")
 		}
 		if err := bcrypt.CompareHashAndPassword([]byte(user.Password), []byte(req.OldPassword)); err != nil {
 			return dtos.UserResponse{}, errors.New("old password salah")
 		}
-
 		if req.Password != req.ConfirmPassword {
 			return dtos.UserResponse{}, errors.New("password dan konfirmasi password tidak sama")
 		}
-
 		if req.Password == strings.ToLower(req.Password) {
-			return dtos.UserResponse{}, errors.New("password tidak boleh semua huruf kecil, gunakan kombinasi huruf besar/kecil/angka/simbol")
+			return dtos.UserResponse{}, errors.New("password harus kombinasi huruf besar/kecil/angka/simbol")
 		}
-
 		if bcrypt.CompareHashAndPassword([]byte(user.Password), []byte(req.Password)) == nil {
-			return dtos.UserResponse{}, errors.New("password baru tidak boleh sama dengan password lama")
+			return dtos.UserResponse{}, errors.New("password baru tidak boleh sama dengan lama")
 		}
 
 		hash, _ := bcrypt.GenerateFromPassword([]byte(req.Password), bcrypt.DefaultCost)
@@ -145,11 +179,23 @@ func (uc *UserUsecase) UpdateUser(id string, req dtos.RegisterUserRequest) (dtos
 	if req.Email != "" {
 		user.Email = req.Email
 	}
+	//if req.Phone != "" {
+	//	user.Phone = req.Phone
+	//}
 	if req.Role != "" {
-		user.Role = req.Role
+		roleID, err := uuid.Parse(req.Role)
+		if err != nil {
+			return dtos.UserResponse{}, errors.New("role ID tidak valid")
+		}
+		roleEntity, err := uc.repoRole.FindByID(roleID)
+		if err != nil || roleEntity == nil {
+			return dtos.UserResponse{}, errors.New("role tidak ditemukan")
+		}
+		user.RoleId = roleEntity.ID
+		user.Role = *roleEntity
 	}
-	user.UpdatedAt = time.Now()
 
+	user.UpdatedAt = time.Now()
 	if err := uc.repo.Update(user); err != nil {
 		return dtos.UserResponse{}, err
 	}

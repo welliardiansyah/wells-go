@@ -5,14 +5,16 @@ import (
 	"wells-go/infrastructure/config"
 	"wells-go/infrastructure/middleware"
 	"wells-go/infrastructure/persistence"
+	"wells-go/util/security"
 
 	"github.com/gin-gonic/gin"
 	"gorm.io/gorm"
 )
 
-func RouteUsers(db *gorm.DB, router *gin.RouterGroup, cfg *config.Config) {
+func RouteUsers(db *gorm.DB, router *gin.RouterGroup, cfg *config.Config, maker security.Maker) {
 	repo := persistence.NewUserRepository(db)
-	usecase := usecases.NewUserUsecase(repo, cfg)
+	repoRole := persistence.NewRoleRepositoryImpl(db)
+	usecase := usecases.NewUserUsecase(repo, repoRole, cfg, maker)
 	controller := NewUserController(usecase)
 
 	// Public routes
@@ -21,7 +23,7 @@ func RouteUsers(db *gorm.DB, router *gin.RouterGroup, cfg *config.Config) {
 
 	// Protected routes (JWT middleware)
 	protected := router.Group("/users")
-	protected.Use(middleware.AuthMiddleware())
+	protected.Use(middleware.AuthMiddleware(maker))
 
 	protected.GET("/", controller.GetUsers)
 	protected.GET("/:id", controller.GetUserByID)

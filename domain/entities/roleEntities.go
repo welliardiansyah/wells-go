@@ -7,12 +7,13 @@ import (
 )
 
 type RoleEntity struct {
-	ID        uuid.UUID      `gorm:"type:uuid;primaryKey" json:"id"`
-	Name      string         `gorm:"column:name;type:varchar(100);unique;not null" json:"name"`
-	Users     []UserEntity   `gorm:"foreignKey:RoleId;references:ID"`
-	CreatedAt time.Time      `json:"created_at"`
-	UpdatedAt time.Time      `json:"updated_at"`
-	DeletedAt gorm.DeletedAt `gorm:"index" json:"deleted_at,omitempty"`
+	ID          uuid.UUID          `gorm:"type:uuid;primaryKey" json:"id"`
+	Name        string             `gorm:"column:name;type:varchar(100);uniqueIndex:idx_role_name;not null" json:"name"`
+	Users       []UserEntity       `gorm:"foreignKey:RoleId;references:ID"`
+	Permissions []PermissionEntity `gorm:"many2many:wells_role_permissions;" json:"permissions"`
+	CreatedAt   time.Time          `gorm:"index:idx_role_created_at" json:"created_at"`
+	UpdatedAt   time.Time          `gorm:"index:idx_role_updated_at" json:"updated_at"`
+	DeletedAt   gorm.DeletedAt     `gorm:"index:idx_role_deleted_at" json:"deleted_at,omitempty"`
 }
 
 func (RoleEntity) TableName() string {

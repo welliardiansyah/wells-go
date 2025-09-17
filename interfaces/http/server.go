@@ -9,8 +9,11 @@ import (
 	"os"
 	"time"
 	"wells-go/infrastructure/config"
+	"wells-go/interfaces/http/permission"
+	"wells-go/interfaces/http/role"
 	"wells-go/interfaces/http/users"
 	"wells-go/util/cors"
+	"wells-go/util/security"
 )
 
 func init() {
@@ -37,26 +40,28 @@ func init() {
 }
 
 type Server struct {
-	Config *config.Config
-	DB     *gorm.DB
-	Engine *gin.Engine
+	Config   *config.Config
+	DB       *gorm.DB
+	Engine   *gin.Engine
+	Security security.Maker
 }
 
-func NewServer(db *gorm.DB, config *config.Config, r *gin.Engine, cors gin.HandlerFunc) (*Server, error) {
+func NewServer(db *gorm.DB, config *config.Config, r *gin.Engine, corsMiddleware gin.HandlerFunc, securityMaker security.Maker) (*Server, error) {
 	log.Println("[INFO] Initializing server...")
 
-	if cors != nil {
-		r.Use(cors)
+	if corsMiddleware != nil {
+		r.Use(corsMiddleware)
 	}
 
 	server := &Server{
-		DB:     db,
-		Config: config,
-		Engine: r,
+		DB:       db,
+		Config:   config,
+		Engine:   r,
+		Security: securityMaker,
 	}
 
 	log.Println("[INFO] Setting up router...")
-	server.setupRouter(db)
+	server.setupRouter()
 	log.Println("[INFO] Router setup completed.")
 
 	return server, nil
@@ -70,18 +75,20 @@ func LoggingMiddleware() gin.HandlerFunc {
 	}
 }
 
-func (server *Server) setupRouter(db *gorm.DB) {
-	router := gin.Default()
-	log.Println("[INFO] Gin router initialized.")
+func (server *Server) setupRouter() {
+	router := server.Engine
 
 	router.Use(cors.CORSMiddleware(server.Config))
 	router.Use(LoggingMiddleware())
 
 	// ====================================================================================
-	// Public Routes Group: These routes do NOT require JWT or Android Key authentication.
+	// Routes Group
 	// ====================================================================================
 	publicRoutes := router.Group("")
-	users.RouteUsers(db, publicRoutes, server.Config)
+
+	users.RouteUsers(server.DB, publicRoutes, server.Config, server.Security)
+	role.RouteRoles(server.DB, publicRoutes, server.Config, server.Security)
+	permission.RoutePermissions(server.DB, publicRoutes, server.Config, server.Security)
 
 	server.Engine = router
 }

@@ -20,7 +20,12 @@ func (r *UserRepositoryImpl) Create(user *entities.UserEntity) error {
 
 func (r *UserRepositoryImpl) FindByEmail(email string) (*entities.UserEntity, error) {
 	var user entities.UserEntity
-	if err := r.db.Where("email = ?", email).First(&user).Error; err != nil {
+	err := r.db.
+		Preload("Role").
+		Preload("Role.Permissions").
+		Where("email = ?", email).
+		First(&user).Error
+	if err != nil {
 		return nil, err
 	}
 	return &user, nil
