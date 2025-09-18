@@ -18,7 +18,7 @@ func RoutePermissions(db *gorm.DB, router *gin.RouterGroup, cfg *config.Config, 
 	protected := router.Group("/permissions")
 	protected.Use(middleware.AuthMiddleware(maker))
 
-	protected.POST("/create", middleware.RoleAndPermissionMiddleware([]string{"Admin"}, []string{"create"}), controller.Create)
+	protected.POST("/create", controller.Create)
 	protected.GET("/get/all", controller.FindAll)
 	protected.GET("/get/:id", controller.FindByID)
 	protected.PUT("/update/:id", controller.Update)

@@ -1,0 +1,204 @@
+2025/09/18 11:02:39 server.go:39: [INFO] Logging initialized. Outputting to terminal and file.
+2025/09/18 11:02:39 redisClient.go:28: ✅ Connected to Redis
+2025/09/18 11:02:40 server.go:50: [INFO] Initializing server...
+2025/09/18 11:02:40 server.go:63: [INFO] Setting up router...
+2025/09/18 11:02:40 server.go:65: [INFO] Router setup completed.
+2025/09/18 11:02:40 server.go:97: [INFO] Starting server at 0.0.0.0:8888...
+2025/09/18 11:03:00 server.go:72: [DEBUG] Request to POST /users/login
+2025/09/18 11:03:00 server.go:73: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Connection:[keep-alive] Content-Length:[71] Content-Type:[application/json] Postman-Token:[5143376d-d0f9-4944-9034-350fe8ee80d0] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/18 11:03:41 server.go:72: [DEBUG] Request to POST /users/login
+2025/09/18 11:03:41 server.go:73: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Connection:[keep-alive] Content-Length:[71] Content-Type:[application/json] Postman-Token:[e12d5bd3-bc18-4eae-a504-6413e0bd3a6e] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/18 11:03:47 server.go:72: [DEBUG] Request to POST /roles/create/role
+2025/09/18 11:03:47 server.go:73: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Authorization:[Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3ZTA5OWE4Mi02OWNlLTQ3ZWQtYmEwNC1mNWJkYjY3MDEzN2UiLCJlbWFpbCI6InVzZXJAZ29sYW5nLmNvbSIsInJvbGVzIjpbIlVzZXIiXSwicGVybWlzc2lvbnMiOlt7Im5hbWUiOiJVc2VyIiwiY2FuX2NyZWF0ZSI6ZmFsc2UsImNhbl9yZWFkIjp0cnVlLCJjYW5fdXBkYXRlIjpmYWxzZSwiY2FuX2RlbGV0ZSI6ZmFsc2UsImNhbl9leHBvcnQiOnRydWUsImNhbl9pbXBvcnQiOnRydWUsImNhbl92aWV3Ijp0cnVlfV0sImlzcyI6IndlbGxzLWFwaSIsImV4cCI6MTc1ODIwODI2MiwiaWF0IjoxNzU4MTIxODYyfQ.EWbRtYqAiGrBllg7_GDlpTdKwb6Y-S2Uyhyp9t6K5ew] Connection:[keep-alive] Content-Length:[93] Content-Type:[application/json] Postman-Token:[810a9403-7c6c-4afa-a6d4-c588da0bf44d] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/18 11:03:53 server.go:72: [DEBUG] Request to POST /permissions/create
+2025/09/18 11:03:53 server.go:73: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Authorization:[Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3ZTA5OWE4Mi02OWNlLTQ3ZWQtYmEwNC1mNWJkYjY3MDEzN2UiLCJlbWFpbCI6InVzZXJAZ29sYW5nLmNvbSIsInJvbGVzIjpbIlVzZXIiXSwicGVybWlzc2lvbnMiOlt7Im5hbWUiOiJVc2VyIiwiY2FuX2NyZWF0ZSI6ZmFsc2UsImNhbl9yZWFkIjp0cnVlLCJjYW5fdXBkYXRlIjpmYWxzZSwiY2FuX2RlbGV0ZSI6ZmFsc2UsImNhbl9leHBvcnQiOnRydWUsImNhbl9pbXBvcnQiOnRydWUsImNhbl92aWV3Ijp0cnVlfV0sImlzcyI6IndlbGxzLWFwaSIsImV4cCI6MTc1ODIwODI2MiwiaWF0IjoxNzU4MTIxODYyfQ.EWbRtYqAiGrBllg7_GDlpTdKwb6Y-S2Uyhyp9t6K5ew] Connection:[keep-alive] Content-Length:[191] Content-Type:[application/json] Postman-Token:[05a2dee3-4611-4581-8d6a-a84affcd6189] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/18 11:09:40 server.go:72: [DEBUG] Request to POST /users/logout
+2025/09/18 11:09:40 server.go:73: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Authorization:[Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpvaG5AZXhhbXBsZS5jb20iLCJleHAiOjE3NTcyMjM0MTIsInJvbGUiOiIiLCJzdWIiOiI0ODQ4ODg3YS00ZjdiLTQ0MTctODVkMi1iZTFjZjlhNTU0MzEifQ.BslPLRdHvqz29PXxQff91Rgt8laNzrQOCP5Qdb5s3pM] Connection:[keep-alive] Content-Length:[0] Postman-Token:[d1e48d7b-f7c7-41d4-9ca6-fb28903b923a] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/18 11:09:56 server.go:72: [DEBUG] Request to POST /users/logout
+2025/09/18 11:09:56 server.go:73: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Authorization:[Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3ZTA5OWE4Mi02OWNlLTQ3ZWQtYmEwNC1mNWJkYjY3MDEzN2UiLCJlbWFpbCI6InVzZXJAZ29sYW5nLmNvbSIsInJvbGVzIjpbIlVzZXIiXSwicGVybWlzc2lvbnMiOlt7Im5hbWUiOiJVc2VyIiwiY2FuX2NyZWF0ZSI6ZmFsc2UsImNhbl9yZWFkIjp0cnVlLCJjYW5fdXBkYXRlIjpmYWxzZSwiY2FuX2RlbGV0ZSI6ZmFsc2UsImNhbl9leHBvcnQiOnRydWUsImNhbl9pbXBvcnQiOnRydWUsImNhbl92aWV3Ijp0cnVlfV0sImlzcyI6IndlbGxzLWFwaSIsImV4cCI6MTc1ODI1NDYyMSwiaWF0IjoxNzU4MTY4MjIxfQ.gEhlmzzzmJiacifacv_88BnYP2bcVclDGYUp9iTCCf4] Connection:[keep-alive] Content-Length:[0] Postman-Token:[764293c6-7a29-48ea-b26a-4abff7f2a1e9] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/18 11:10:37 server.go:72: [DEBUG] Request to POST /users/logout
+2025/09/18 11:10:37 server.go:73: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Authorization:[Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3ZTA5OWE4Mi02OWNlLTQ3ZWQtYmEwNC1mNWJkYjY3MDEzN2UiLCJlbWFpbCI6InVzZXJAZ29sYW5nLmNvbSIsInJvbGVzIjpbIlVzZXIiXSwicGVybWlzc2lvbnMiOlt7Im5hbWUiOiJVc2VyIiwiY2FuX2NyZWF0ZSI6ZmFsc2UsImNhbl9yZWFkIjp0cnVlLCJjYW5fdXBkYXRlIjpmYWxzZSwiY2FuX2RlbGV0ZSI6ZmFsc2UsImNhbl9leHBvcnQiOnRydWUsImNhbl9pbXBvcnQiOnRydWUsImNhbl92aWV3Ijp0cnVlfV0sImlzcyI6IndlbGxzLWFwaSIsImV4cCI6MTc1ODI1NDYyMSwiaWF0IjoxNzU4MTY4MjIxfQ.gEhlmzzzmJiacifacv_88BnYP2bcVclDGYUp9iTCCf4] Connection:[keep-alive] Content-Length:[0] Postman-Token:[3dc9589c-fbf2-4b4d-a082-5a7119c59144] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/18 11:10:40 server.go:72: [DEBUG] Request to POST /users/login
+2025/09/18 11:10:40 server.go:73: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Connection:[keep-alive] Content-Length:[71] Content-Type:[application/json] Postman-Token:[fae9b639-2360-49e2-9531-49bba4f5db41] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/18 11:10:54 server.go:72: [DEBUG] Request to POST /users/logout
+2025/09/18 11:10:54 server.go:73: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Authorization:[Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3ZTA5OWE4Mi02OWNlLTQ3ZWQtYmEwNC1mNWJkYjY3MDEzN2UiLCJlbWFpbCI6InVzZXJAZ29sYW5nLmNvbSIsInJvbGVzIjpbIlVzZXIiXSwicGVybWlzc2lvbnMiOlt7Im5hbWUiOiJVc2VyIiwiY2FuX2NyZWF0ZSI6ZmFsc2UsImNhbl9yZWFkIjp0cnVlLCJjYW5fdXBkYXRlIjpmYWxzZSwiY2FuX2RlbGV0ZSI6ZmFsc2UsImNhbl9leHBvcnQiOnRydWUsImNhbl9pbXBvcnQiOnRydWUsImNhbl92aWV3Ijp0cnVlfV0sImlzcyI6IndlbGxzLWFwaSIsImV4cCI6MTc1ODI1NTA0MCwiaWF0IjoxNzU4MTY4NjQwfQ.a9ye3jGO5qmrT60bvsQfPFln-rODm1I0Z0RXdyAKgmk] Connection:[keep-alive] Content-Length:[0] Postman-Token:[715ad504-983b-4fd4-abe0-c5c1657f8002] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/18 11:12:39 server.go:39: [INFO] Logging initialized. Outputting to terminal and file.
+2025/09/18 11:12:39 redisClient.go:28: ✅ Connected to Redis
+2025/09/18 11:12:40 server.go:50: [INFO] Initializing server...
+2025/09/18 11:12:40 server.go:63: [INFO] Setting up router...
+2025/09/18 11:12:40 server.go:65: [INFO] Router setup completed.
+2025/09/18 11:12:40 server.go:97: [INFO] Starting server at 0.0.0.0:8888...
+2025/09/18 11:12:45 server.go:72: [DEBUG] Request to POST /users/login
+2025/09/18 11:12:45 server.go:73: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Connection:[keep-alive] Content-Length:[71] Content-Type:[application/json] Postman-Token:[dac16c80-3971-40c3-978b-eb49450a86e1] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/18 11:12:50 server.go:72: [DEBUG] Request to POST /users/login
+2025/09/18 11:12:50 server.go:73: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Connection:[keep-alive] Content-Length:[71] Content-Type:[application/json] Postman-Token:[733a6e99-0c65-4979-bf84-e3309e6f5a85] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/18 11:12:59 server.go:72: [DEBUG] Request to POST /users/logout
+2025/09/18 11:12:59 server.go:73: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Authorization:[Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3ZTA5OWE4Mi02OWNlLTQ3ZWQtYmEwNC1mNWJkYjY3MDEzN2UiLCJlbWFpbCI6InVzZXJAZ29sYW5nLmNvbSIsInJvbGVzIjpbIlVzZXIiXSwicGVybWlzc2lvbnMiOlt7Im5hbWUiOiJVc2VyIiwiY2FuX2NyZWF0ZSI6ZmFsc2UsImNhbl9yZWFkIjp0cnVlLCJjYW5fdXBkYXRlIjpmYWxzZSwiY2FuX2RlbGV0ZSI6ZmFsc2UsImNhbl9leHBvcnQiOnRydWUsImNhbl9pbXBvcnQiOnRydWUsImNhbl92aWV3Ijp0cnVlfV0sImlzcyI6IndlbGxzLWFwaSIsImV4cCI6MTc1ODI1NTE3MCwiaWF0IjoxNzU4MTY4NzcwfQ.KGq6NoXLWYTysgSIKwSvxs65PnmWm00q34JB9pmCmzQ] Connection:[keep-alive] Content-Length:[0] Postman-Token:[993e4a53-8a92-470d-978e-1a9c7a13c70c] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/18 11:14:20 server.go:72: [DEBUG] Request to POST /users/login
+2025/09/18 11:14:20 server.go:73: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Connection:[keep-alive] Content-Length:[71] Content-Type:[application/json] Postman-Token:[023a31cd-1e59-43dd-bef7-36e3d2dd7bfe] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/18 11:19:30 server.go:39: [INFO] Logging initialized. Outputting to terminal and file.
+2025/09/18 11:19:30 redisClient.go:28: ✅ Connected to Redis
+2025/09/18 11:19:31 server.go:50: [INFO] Initializing server...
+2025/09/18 11:19:31 server.go:63: [INFO] Setting up router...
+2025/09/18 11:19:31 server.go:65: [INFO] Router setup completed.
+2025/09/18 11:19:31 server.go:97: [INFO] Starting server at 0.0.0.0:8888...
+2025/09/18 11:19:35 server.go:72: [DEBUG] Request to POST /users/login
+2025/09/18 11:19:35 server.go:73: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Connection:[keep-alive] Content-Length:[71] Content-Type:[application/json] Postman-Token:[c75e2a47-983e-4a70-8234-448fc83fd8ed] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/18 11:19:50 server.go:72: [DEBUG] Request to POST /users/logout
+2025/09/18 11:19:50 server.go:73: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Authorization:[Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3ZTA5OWE4Mi02OWNlLTQ3ZWQtYmEwNC1mNWJkYjY3MDEzN2UiLCJlbWFpbCI6InVzZXJAZ29sYW5nLmNvbSIsInJvbGVzIjpbIlVzZXIiXSwicGVybWlzc2lvbnMiOlt7Im5hbWUiOiJVc2VyIiwiY2FuX2NyZWF0ZSI6ZmFsc2UsImNhbl9yZWFkIjp0cnVlLCJjYW5fdXBkYXRlIjpmYWxzZSwiY2FuX2RlbGV0ZSI6ZmFsc2UsImNhbl9leHBvcnQiOnRydWUsImNhbl9pbXBvcnQiOnRydWUsImNhbl92aWV3Ijp0cnVlfV0sImlzcyI6IndlbGxzLWFwaSIsImV4cCI6MTc1ODI1NTU3NSwiaWF0IjoxNzU4MTY5MTc1fQ.bDFrv85Sv4SefYVyWiREoBNa8JfhJN8GpX7Fsc7fvEM] Connection:[keep-alive] Content-Length:[0] Postman-Token:[ec7952fd-a769-413d-aecd-cd1b2efabd69] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/18 11:20:04 server.go:72: [DEBUG] Request to POST /permissions/create
+2025/09/18 11:20:04 server.go:73: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Authorization:[Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3ZTA5OWE4Mi02OWNlLTQ3ZWQtYmEwNC1mNWJkYjY3MDEzN2UiLCJlbWFpbCI6InVzZXJAZ29sYW5nLmNvbSIsInJvbGVzIjpbIlVzZXIiXSwicGVybWlzc2lvbnMiOlt7Im5hbWUiOiJVc2VyIiwiY2FuX2NyZWF0ZSI6ZmFsc2UsImNhbl9yZWFkIjp0cnVlLCJjYW5fdXBkYXRlIjpmYWxzZSwiY2FuX2RlbGV0ZSI6ZmFsc2UsImNhbl9leHBvcnQiOnRydWUsImNhbl9pbXBvcnQiOnRydWUsImNhbl92aWV3Ijp0cnVlfV0sImlzcyI6IndlbGxzLWFwaSIsImV4cCI6MTc1ODIwODI2MiwiaWF0IjoxNzU4MTIxODYyfQ.EWbRtYqAiGrBllg7_GDlpTdKwb6Y-S2Uyhyp9t6K5ew] Connection:[keep-alive] Content-Length:[191] Content-Type:[application/json] Postman-Token:[4e93c49c-24f2-4c49-abde-b91804652e7e] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/18 11:20:08 server.go:72: [DEBUG] Request to POST /roles/create/role
+2025/09/18 11:20:08 server.go:73: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Authorization:[Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3ZTA5OWE4Mi02OWNlLTQ3ZWQtYmEwNC1mNWJkYjY3MDEzN2UiLCJlbWFpbCI6InVzZXJAZ29sYW5nLmNvbSIsInJvbGVzIjpbIlVzZXIiXSwicGVybWlzc2lvbnMiOlt7Im5hbWUiOiJVc2VyIiwiY2FuX2NyZWF0ZSI6ZmFsc2UsImNhbl9yZWFkIjp0cnVlLCJjYW5fdXBkYXRlIjpmYWxzZSwiY2FuX2RlbGV0ZSI6ZmFsc2UsImNhbl9leHBvcnQiOnRydWUsImNhbl9pbXBvcnQiOnRydWUsImNhbl92aWV3Ijp0cnVlfV0sImlzcyI6IndlbGxzLWFwaSIsImV4cCI6MTc1ODIwODI2MiwiaWF0IjoxNzU4MTIxODYyfQ.EWbRtYqAiGrBllg7_GDlpTdKwb6Y-S2Uyhyp9t6K5ew] Connection:[keep-alive] Content-Length:[93] Content-Type:[application/json] Postman-Token:[d86bbc6c-7283-4a96-bd09-30205b67e2cd] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/18 11:20:11 server.go:72: [DEBUG] Request to POST /users/register
+2025/09/18 11:20:11 server.go:73: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Connection:[keep-alive] Content-Length:[193] Content-Type:[application/json] Postman-Token:[63ae5241-5c3d-4e98-a01f-700d55ff593b] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/18 11:20:18 server.go:72: [DEBUG] Request to POST /users/login
+2025/09/18 11:20:18 server.go:73: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Connection:[keep-alive] Content-Length:[71] Content-Type:[application/json] Postman-Token:[9ff14ca9-4a4f-42de-9adf-41c90496e151] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/18 11:20:31 server.go:72: [DEBUG] Request to POST /users/logout
+2025/09/18 11:20:31 server.go:73: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Authorization:[Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3ZTA5OWE4Mi02OWNlLTQ3ZWQtYmEwNC1mNWJkYjY3MDEzN2UiLCJlbWFpbCI6InVzZXJAZ29sYW5nLmNvbSIsInJvbGVzIjpbIlVzZXIiXSwicGVybWlzc2lvbnMiOlt7Im5hbWUiOiJVc2VyIiwiY2FuX2NyZWF0ZSI6ZmFsc2UsImNhbl9yZWFkIjp0cnVlLCJjYW5fdXBkYXRlIjpmYWxzZSwiY2FuX2RlbGV0ZSI6ZmFsc2UsImNhbl9leHBvcnQiOnRydWUsImNhbl9pbXBvcnQiOnRydWUsImNhbl92aWV3Ijp0cnVlfV0sImlzcyI6IndlbGxzLWFwaSIsImV4cCI6MTc1ODI1NTYxOCwiaWF0IjoxNzU4MTY5MjE4fQ.02mwD6BrQ2nHb7su1bk53yYkTF4PL007xv7FL3-g6ZM] Connection:[keep-alive] Content-Length:[0] Postman-Token:[cd724ceb-d199-4050-9384-ba8c9a057c34] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/18 12:15:52 server.go:40: [INFO] Logging initialized. Outputting to terminal and file.
+2025/09/18 12:15:52 redisClient.go:28: ✅ Connected to Redis
+2025/09/18 12:15:53 server.go:51: [INFO] Initializing server...
+2025/09/18 12:15:53 server.go:64: [INFO] Setting up router...
+2025/09/18 12:15:53 server.go:66: [INFO] Router setup completed.
+2025/09/18 12:15:53 server.go:99: [INFO] Starting server at 0.0.0.0:8888...
+2025/09/18 12:16:01 server.go:73: [DEBUG] Request to POST /roles/create/role
+2025/09/18 12:16:01 server.go:74: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Authorization:[Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3ZTA5OWE4Mi02OWNlLTQ3ZWQtYmEwNC1mNWJkYjY3MDEzN2UiLCJlbWFpbCI6InVzZXJAZ29sYW5nLmNvbSIsInJvbGVzIjpbIlVzZXIiXSwicGVybWlzc2lvbnMiOlt7Im5hbWUiOiJVc2VyIiwiY2FuX2NyZWF0ZSI6ZmFsc2UsImNhbl9yZWFkIjp0cnVlLCJjYW5fdXBkYXRlIjpmYWxzZSwiY2FuX2RlbGV0ZSI6ZmFsc2UsImNhbl9leHBvcnQiOnRydWUsImNhbl9pbXBvcnQiOnRydWUsImNhbl92aWV3Ijp0cnVlfV0sImlzcyI6IndlbGxzLWFwaSIsImV4cCI6MTc1ODIwODI2MiwiaWF0IjoxNzU4MTIxODYyfQ.EWbRtYqAiGrBllg7_GDlpTdKwb6Y-S2Uyhyp9t6K5ew] Connection:[keep-alive] Content-Length:[93] Content-Type:[application/json] Postman-Token:[3c62a17a-0c24-4407-a1cc-5136189fad70] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/18 12:16:11 server.go:73: [DEBUG] Request to POST /roles/create/role
+2025/09/18 12:16:11 server.go:74: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Authorization:[Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3ZTA5OWE4Mi02OWNlLTQ3ZWQtYmEwNC1mNWJkYjY3MDEzN2UiLCJlbWFpbCI6InVzZXJAZ29sYW5nLmNvbSIsInJvbGVzIjpbIlVzZXIiXSwicGVybWlzc2lvbnMiOlt7Im5hbWUiOiJVc2VyIiwiY2FuX2NyZWF0ZSI6ZmFsc2UsImNhbl9yZWFkIjp0cnVlLCJjYW5fdXBkYXRlIjpmYWxzZSwiY2FuX2RlbGV0ZSI6ZmFsc2UsImNhbl9leHBvcnQiOnRydWUsImNhbl9pbXBvcnQiOnRydWUsImNhbl92aWV3Ijp0cnVlfV0sImlzcyI6IndlbGxzLWFwaSIsImV4cCI6MTc1ODIwODI2MiwiaWF0IjoxNzU4MTIxODYyfQ.EWbRtYqAiGrBllg7_GDlpTdKwb6Y-S2Uyhyp9t6K5ew] Connection:[keep-alive] Content-Length:[93] Content-Type:[application/json] Postman-Token:[30c94392-31c4-4221-83c9-1422225d20ec] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/18 12:16:15 server.go:73: [DEBUG] Request to POST /users/login
+2025/09/18 12:16:15 server.go:74: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Connection:[keep-alive] Content-Length:[71] Content-Type:[application/json] Postman-Token:[28e83b72-0c21-4425-ac9b-81936a704ea2] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/18 12:16:58 server.go:40: [INFO] Logging initialized. Outputting to terminal and file.
+2025/09/18 12:16:58 redisClient.go:28: ✅ Connected to Redis
+2025/09/18 12:16:59 server.go:51: [INFO] Initializing server...
+2025/09/18 12:16:59 server.go:64: [INFO] Setting up router...
+2025/09/18 12:16:59 server.go:66: [INFO] Router setup completed.
+2025/09/18 12:16:59 server.go:99: [INFO] Starting server at 0.0.0.0:8888...
+2025/09/18 12:17:13 server.go:40: [INFO] Logging initialized. Outputting to terminal and file.
+2025/09/18 12:17:13 redisClient.go:28: ✅ Connected to Redis
+2025/09/18 12:17:14 server.go:51: [INFO] Initializing server...
+2025/09/18 12:17:14 server.go:64: [INFO] Setting up router...
+2025/09/18 12:17:14 server.go:66: [INFO] Router setup completed.
+2025/09/18 12:17:14 server.go:99: [INFO] Starting server at 0.0.0.0:8888...
+2025/09/18 12:17:16 server.go:73: [DEBUG] Request to POST /users/login
+2025/09/18 12:17:16 server.go:74: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Connection:[keep-alive] Content-Length:[71] Content-Type:[application/json] Postman-Token:[69d82352-ac20-4e87-83f4-a6e5d09804b9] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/18 12:17:30 server.go:73: [DEBUG] Request to POST /roles/create/role
+2025/09/18 12:17:30 server.go:74: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Authorization:[Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3ZTA5OWE4Mi02OWNlLTQ3ZWQtYmEwNC1mNWJkYjY3MDEzN2UiLCJlbWFpbCI6InVzZXJAZ29sYW5nLmNvbSIsInJvbGVzIjpbIlVzZXIiXSwicGVybWlzc2lvbnMiOlt7Im5hbWUiOiJVc2VyIiwiY2FuX2NyZWF0ZSI6ZmFsc2UsImNhbl9yZWFkIjp0cnVlLCJjYW5fdXBkYXRlIjpmYWxzZSwiY2FuX2RlbGV0ZSI6ZmFsc2UsImNhbl9leHBvcnQiOnRydWUsImNhbl9pbXBvcnQiOnRydWUsImNhbl92aWV3Ijp0cnVlfV0sImlzcyI6IndlbGxzLWFwaSIsImV4cCI6MTc1ODI1OTAzNiwiaWF0IjoxNzU4MTcyNjM2fQ.5vKjZdhHQbQKGf79uBATnS39IclY9WRtURcz0OFHP7Q] Connection:[keep-alive] Content-Length:[93] Content-Type:[application/json] Postman-Token:[b687e90f-3853-49d6-add3-746ade979fcd] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/18 12:19:38 server.go:73: [DEBUG] Request to POST /route-access/create
+2025/09/18 12:19:38 server.go:74: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Connection:[keep-alive] Content-Length:[113] Content-Type:[application/json] Postman-Token:[d2784deb-b0ee-44e8-a35a-0465eb635dfa] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/18 12:20:02 server.go:40: [INFO] Logging initialized. Outputting to terminal and file.
+2025/09/18 12:20:02 redisClient.go:28: ✅ Connected to Redis
+2025/09/18 12:20:03 server.go:51: [INFO] Initializing server...
+2025/09/18 12:20:03 server.go:64: [INFO] Setting up router...
+2025/09/18 12:20:03 server.go:66: [INFO] Router setup completed.
+2025/09/18 12:20:03 server.go:99: [INFO] Starting server at 0.0.0.0:8888...
+2025/09/18 12:20:05 server.go:73: [DEBUG] Request to POST /route-access/create
+2025/09/18 12:20:05 server.go:74: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Connection:[keep-alive] Content-Length:[113] Content-Type:[application/json] Postman-Token:[d1806e2c-cc11-4250-83b8-2e068f57d429] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/18 12:20:37 server.go:73: [DEBUG] Request to POST /route-access/create
+2025/09/18 12:20:37 server.go:74: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Connection:[keep-alive] Content-Length:[121] Content-Type:[application/json] Postman-Token:[ffab7d5b-6dc9-47a2-9ede-7af8e430188e] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/18 12:24:13 server.go:40: [INFO] Logging initialized. Outputting to terminal and file.
+2025/09/18 12:24:13 redisClient.go:28: ✅ Connected to Redis
+2025/09/18 12:24:13 server.go:51: [INFO] Initializing server...
+2025/09/18 12:24:13 server.go:64: [INFO] Setting up router...
+2025/09/18 12:24:13 server.go:66: [INFO] Router setup completed.
+2025/09/18 12:24:13 server.go:99: [INFO] Starting server at 0.0.0.0:8888...
+2025/09/18 12:24:19 server.go:73: [DEBUG] Request to POST /route-access/create
+2025/09/18 12:24:19 server.go:74: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Connection:[keep-alive] Content-Length:[121] Content-Type:[application/json] Postman-Token:[9ab14536-07c7-4680-b65d-fc8eacc1b8dc] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/18 12:31:22 server.go:40: [INFO] Logging initialized. Outputting to terminal and file.
+2025/09/18 12:31:22 redisClient.go:28: ✅ Connected to Redis
+2025/09/18 12:31:22 server.go:51: [INFO] Initializing server...
+2025/09/18 12:31:22 server.go:64: [INFO] Setting up router...
+2025/09/18 12:31:22 server.go:66: [INFO] Router setup completed.
+2025/09/18 12:31:22 server.go:99: [INFO] Starting server at 0.0.0.0:8888...
+2025/09/18 12:31:27 server.go:73: [DEBUG] Request to POST /route-access/create
+2025/09/18 12:31:27 server.go:74: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Connection:[keep-alive] Content-Length:[121] Content-Type:[application/json] Postman-Token:[6c08411a-d66a-427b-af7b-411ce63705ed] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/18 12:31:46 server.go:73: [DEBUG] Request to POST /route-access/create
+2025/09/18 12:31:46 server.go:74: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Connection:[keep-alive] Content-Length:[121] Content-Type:[application/json] Postman-Token:[7b4f5d3e-91ab-44b6-8e2f-3cd2bd95a351] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/18 12:32:54 server.go:40: [INFO] Logging initialized. Outputting to terminal and file.
+2025/09/18 12:32:54 redisClient.go:28: ✅ Connected to Redis
+2025/09/18 12:32:55 server.go:51: [INFO] Initializing server...
+2025/09/18 12:32:55 server.go:64: [INFO] Setting up router...
+2025/09/18 12:32:55 server.go:66: [INFO] Router setup completed.
+2025/09/18 12:32:55 server.go:99: [INFO] Starting server at 0.0.0.0:8888...
+2025/09/18 12:32:58 server.go:73: [DEBUG] Request to POST /route-access/create
+2025/09/18 12:32:58 server.go:74: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Connection:[keep-alive] Content-Length:[121] Content-Type:[application/json] Postman-Token:[09deede6-4722-4028-8094-1f85218586a8] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/18 12:33:05 server.go:73: [DEBUG] Request to POST /roles/create/role
+2025/09/18 12:33:05 server.go:74: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Authorization:[Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3ZTA5OWE4Mi02OWNlLTQ3ZWQtYmEwNC1mNWJkYjY3MDEzN2UiLCJlbWFpbCI6InVzZXJAZ29sYW5nLmNvbSIsInJvbGVzIjpbIlVzZXIiXSwicGVybWlzc2lvbnMiOlt7Im5hbWUiOiJVc2VyIiwiY2FuX2NyZWF0ZSI6ZmFsc2UsImNhbl9yZWFkIjp0cnVlLCJjYW5fdXBkYXRlIjpmYWxzZSwiY2FuX2RlbGV0ZSI6ZmFsc2UsImNhbl9leHBvcnQiOnRydWUsImNhbl9pbXBvcnQiOnRydWUsImNhbl92aWV3Ijp0cnVlfV0sImlzcyI6IndlbGxzLWFwaSIsImV4cCI6MTc1ODI1OTAzNiwiaWF0IjoxNzU4MTcyNjM2fQ.5vKjZdhHQbQKGf79uBATnS39IclY9WRtURcz0OFHP7Q] Connection:[keep-alive] Content-Length:[93] Content-Type:[application/json] Postman-Token:[8cbf3022-30c4-47c7-9db9-956729480263] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/18 12:33:40 server.go:73: [DEBUG] Request to POST /roles/create/role
+2025/09/18 12:33:40 server.go:74: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Authorization:[Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3ZTA5OWE4Mi02OWNlLTQ3ZWQtYmEwNC1mNWJkYjY3MDEzN2UiLCJlbWFpbCI6InVzZXJAZ29sYW5nLmNvbSIsInJvbGVzIjpbIlVzZXIiXSwicGVybWlzc2lvbnMiOlt7Im5hbWUiOiJVc2VyIiwiY2FuX2NyZWF0ZSI6ZmFsc2UsImNhbl9yZWFkIjp0cnVlLCJjYW5fdXBkYXRlIjpmYWxzZSwiY2FuX2RlbGV0ZSI6ZmFsc2UsImNhbl9leHBvcnQiOnRydWUsImNhbl9pbXBvcnQiOnRydWUsImNhbl92aWV3Ijp0cnVlfV0sImlzcyI6IndlbGxzLWFwaSIsImV4cCI6MTc1ODI1OTAzNiwiaWF0IjoxNzU4MTcyNjM2fQ.5vKjZdhHQbQKGf79uBATnS39IclY9WRtURcz0OFHP7Q] Connection:[keep-alive] Content-Length:[93] Content-Type:[application/json] Postman-Token:[883c7128-a9a6-47ae-9f8a-356cb99379f7] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/18 12:35:46 server.go:40: [INFO] Logging initialized. Outputting to terminal and file.
+2025/09/18 12:35:46 redisClient.go:28: ✅ Connected to Redis
+2025/09/18 12:35:46 server.go:51: [INFO] Initializing server...
+2025/09/18 12:35:46 server.go:64: [INFO] Setting up router...
+2025/09/18 12:35:46 server.go:66: [INFO] Router setup completed.
+2025/09/18 12:35:46 server.go:99: [INFO] Starting server at 0.0.0.0:8888...
+2025/09/18 12:36:01 server.go:73: [DEBUG] Request to POST /roles/create/role
+2025/09/18 12:36:01 server.go:74: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Authorization:[Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3ZTA5OWE4Mi02OWNlLTQ3ZWQtYmEwNC1mNWJkYjY3MDEzN2UiLCJlbWFpbCI6InVzZXJAZ29sYW5nLmNvbSIsInJvbGVzIjpbIlVzZXIiXSwicGVybWlzc2lvbnMiOlt7Im5hbWUiOiJVc2VyIiwiY2FuX2NyZWF0ZSI6ZmFsc2UsImNhbl9yZWFkIjp0cnVlLCJjYW5fdXBkYXRlIjpmYWxzZSwiY2FuX2RlbGV0ZSI6ZmFsc2UsImNhbl9leHBvcnQiOnRydWUsImNhbl9pbXBvcnQiOnRydWUsImNhbl92aWV3Ijp0cnVlfV0sImlzcyI6IndlbGxzLWFwaSIsImV4cCI6MTc1ODI1OTAzNiwiaWF0IjoxNzU4MTcyNjM2fQ.5vKjZdhHQbQKGf79uBATnS39IclY9WRtURcz0OFHP7Q] Connection:[keep-alive] Content-Length:[93] Content-Type:[application/json] Postman-Token:[1d0cc802-919e-4eb2-b022-203182c78ef7] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/18 12:36:04 server.go:73: [DEBUG] Request to POST /users/login
+2025/09/18 12:36:04 server.go:74: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Connection:[keep-alive] Content-Length:[71] Content-Type:[application/json] Postman-Token:[cd0c6741-b39c-4b02-959e-874e5c14fcac] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/18 12:36:14 server.go:73: [DEBUG] Request to POST /users/login
+2025/09/18 12:36:14 server.go:74: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Connection:[keep-alive] Content-Length:[72] Content-Type:[application/json] Postman-Token:[63e43bbb-0675-4a55-a8e3-cfb1793dfabb] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/18 12:36:22 server.go:73: [DEBUG] Request to POST /roles/create/role
+2025/09/18 12:36:22 server.go:74: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Authorization:[Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhNzI3YjhlMS1hZTY2LTRhOTYtYTc2YS1iOTVkYjdhMGZjMmEiLCJlbWFpbCI6IndlbGxzQGdvbGFuZy5jb20iLCJyb2xlcyI6WyJBZG1pbiJdLCJwZXJtaXNzaW9ucyI6W3sibmFtZSI6IkFkbWluIiwiY2FuX2NyZWF0ZSI6dHJ1ZSwiY2FuX3JlYWQiOnRydWUsImNhbl91cGRhdGUiOnRydWUsImNhbl9kZWxldGUiOnRydWUsImNhbl9leHBvcnQiOnRydWUsImNhbl9pbXBvcnQiOnRydWUsImNhbl92aWV3Ijp0cnVlfV0sImlzcyI6IndlbGxzLWFwaSIsImV4cCI6MTc1ODI2MDE3NCwiaWF0IjoxNzU4MTczNzc0fQ.WByO4dulb1iMQerkoKEy9U0IWuoxt6gpiv7Rndpg6HI] Connection:[keep-alive] Content-Length:[93] Content-Type:[application/json] Postman-Token:[e1a2c370-2fb5-4c1a-a8b9-280bef8688c2] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/18 12:37:07 server.go:73: [DEBUG] Request to POST /roles/create/role
+2025/09/18 12:37:07 server.go:74: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Authorization:[Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhNzI3YjhlMS1hZTY2LTRhOTYtYTc2YS1iOTVkYjdhMGZjMmEiLCJlbWFpbCI6IndlbGxzQGdvbGFuZy5jb20iLCJyb2xlcyI6WyJBZG1pbiJdLCJwZXJtaXNzaW9ucyI6W3sibmFtZSI6IkFkbWluIiwiY2FuX2NyZWF0ZSI6dHJ1ZSwiY2FuX3JlYWQiOnRydWUsImNhbl91cGRhdGUiOnRydWUsImNhbl9kZWxldGUiOnRydWUsImNhbl9leHBvcnQiOnRydWUsImNhbl9pbXBvcnQiOnRydWUsImNhbl92aWV3Ijp0cnVlfV0sImlzcyI6IndlbGxzLWFwaSIsImV4cCI6MTc1ODI2MDE3NCwiaWF0IjoxNzU4MTczNzc0fQ.WByO4dulb1iMQerkoKEy9U0IWuoxt6gpiv7Rndpg6HI] Connection:[keep-alive] Content-Length:[93] Content-Type:[application/json] Postman-Token:[3e41ec4a-0ed4-45a6-94ed-4cc659e87c75] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/18 12:43:53 server.go:40: [INFO] Logging initialized. Outputting to terminal and file.
+2025/09/18 12:43:53 redisClient.go:28: ✅ Connected to Redis
+2025/09/18 12:43:53 server.go:51: [INFO] Initializing server...
+2025/09/18 12:43:53 server.go:64: [INFO] Setting up router...
+2025/09/18 12:43:53 server.go:66: [INFO] Router setup completed.
+2025/09/18 12:43:53 server.go:99: [INFO] Starting server at 0.0.0.0:8888...
+2025/09/18 12:44:00 server.go:73: [DEBUG] Request to POST /roles/create/role
+2025/09/18 12:44:00 server.go:74: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Authorization:[Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhNzI3YjhlMS1hZTY2LTRhOTYtYTc2YS1iOTVkYjdhMGZjMmEiLCJlbWFpbCI6IndlbGxzQGdvbGFuZy5jb20iLCJyb2xlcyI6WyJBZG1pbiJdLCJwZXJtaXNzaW9ucyI6W3sibmFtZSI6IkFkbWluIiwiY2FuX2NyZWF0ZSI6dHJ1ZSwiY2FuX3JlYWQiOnRydWUsImNhbl91cGRhdGUiOnRydWUsImNhbl9kZWxldGUiOnRydWUsImNhbl9leHBvcnQiOnRydWUsImNhbl9pbXBvcnQiOnRydWUsImNhbl92aWV3Ijp0cnVlfV0sImlzcyI6IndlbGxzLWFwaSIsImV4cCI6MTc1ODI2MDE3NCwiaWF0IjoxNzU4MTczNzc0fQ.WByO4dulb1iMQerkoKEy9U0IWuoxt6gpiv7Rndpg6HI] Connection:[keep-alive] Content-Length:[93] Content-Type:[application/json] Postman-Token:[ff9f2b51-f292-4295-8c46-90e6f72f9ed3] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/18 12:44:14 server.go:73: [DEBUG] Request to POST /users/login
+2025/09/18 12:44:14 server.go:74: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Connection:[keep-alive] Content-Length:[71] Content-Type:[application/json] Postman-Token:[4bd3e725-07e5-433e-8f84-176d9f796506] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/18 12:44:22 server.go:73: [DEBUG] Request to POST /roles/create/role
+2025/09/18 12:44:22 server.go:74: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Authorization:[Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3ZTA5OWE4Mi02OWNlLTQ3ZWQtYmEwNC1mNWJkYjY3MDEzN2UiLCJlbWFpbCI6InVzZXJAZ29sYW5nLmNvbSIsInJvbGVzIjpbIlVzZXIiXSwicGVybWlzc2lvbnMiOlt7Im5hbWUiOiJVc2VyIiwiY2FuX2NyZWF0ZSI6ZmFsc2UsImNhbl9yZWFkIjp0cnVlLCJjYW5fdXBkYXRlIjpmYWxzZSwiY2FuX2RlbGV0ZSI6ZmFsc2UsImNhbl9leHBvcnQiOnRydWUsImNhbl9pbXBvcnQiOnRydWUsImNhbl92aWV3Ijp0cnVlfV0sImlzcyI6IndlbGxzLWFwaSIsImV4cCI6MTc1ODI2MDY1NCwiaWF0IjoxNzU4MTc0MjU0fQ.o9XC22W6Lw5WE3yHkdCs-vGQCOEnGXZ_6bMRo8f3aGY] Connection:[keep-alive] Content-Length:[93] Content-Type:[application/json] Postman-Token:[dd23b5ac-6e8c-4a16-9ada-ef2a31d23b30] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/18 12:51:07 server.go:73: [DEBUG] Request to GET /api/route-access
+2025/09/18 12:51:07 server.go:74: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Authorization:[Bearer <JWT_TOKEN>] Connection:[keep-alive] Postman-Token:[ec53c6f1-bba1-4a67-a1a4-606161f5e3af] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/18 12:51:27 server.go:73: [DEBUG] Request to GET /api/route-access/get/all
+2025/09/18 12:51:27 server.go:74: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Authorization:[Bearer <JWT_TOKEN>] Connection:[keep-alive] Postman-Token:[94b22fea-ccfe-483c-9648-2d3ce97b597f] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/18 12:51:36 server.go:73: [DEBUG] Request to GET /route-access/get/all
+2025/09/18 12:51:36 server.go:74: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Authorization:[Bearer <JWT_TOKEN>] Connection:[keep-alive] Postman-Token:[c39064f7-e207-4206-840b-c83d69589abb] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/18 12:51:47 server.go:73: [DEBUG] Request to PUT /route-access/38492fe7-33a6-4cda-8cf4-3d408999457a
+2025/09/18 12:51:47 server.go:74: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Authorization:[Bearer <JWT_TOKEN>] Connection:[keep-alive] Content-Length:[114] Content-Type:[application/json] Postman-Token:[a89ed692-7f91-40e9-95ee-327897132472] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/18 12:52:05 server.go:73: [DEBUG] Request to PUT /route-access//update/38492fe7-33a6-4cda-8cf4-3d408999457a
+2025/09/18 12:52:05 server.go:74: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Authorization:[Bearer <JWT_TOKEN>] Connection:[keep-alive] Content-Length:[114] Content-Type:[application/json] Postman-Token:[fd9db9fe-747d-4732-8fa9-25b42fb1d020] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/18 12:52:10 server.go:73: [DEBUG] Request to PUT /route-access/update/38492fe7-33a6-4cda-8cf4-3d408999457a
+2025/09/18 12:52:10 server.go:74: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Authorization:[Bearer <JWT_TOKEN>] Connection:[keep-alive] Content-Length:[114] Content-Type:[application/json] Postman-Token:[7b0f9dfd-9f31-4b62-991e-2277ae845cde] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/18 12:52:20 server.go:73: [DEBUG] Request to PUT /route-access/update/38492fe7-33a6-4cda-8cf4-3d408999457a
+2025/09/18 12:52:20 server.go:74: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Authorization:[Bearer <JWT_TOKEN>] Connection:[keep-alive] Content-Length:[121] Content-Type:[application/json] Postman-Token:[4ab45b2a-fc11-466c-af76-1d31302c55d6] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/18 12:53:24 server.go:73: [DEBUG] Request to GET /route-access/get/38492fe7-33a6-4cda-8cf4-3d408999457a
+2025/09/18 12:53:24 server.go:74: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Connection:[keep-alive] Postman-Token:[88547682-bec6-4471-91bb-f1fabed10dad] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/18 12:53:56 server.go:73: [DEBUG] Request to GET /route-access/get/all
+2025/09/18 12:53:56 server.go:74: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Authorization:[Bearer <JWT_TOKEN>] Connection:[keep-alive] Postman-Token:[b06bfcc2-d85a-45c0-89dc-124eea2bb373] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/18 12:54:39 server.go:73: [DEBUG] Request to GET /route-access/delete/38492fe7-33a6-4cda-8cf4-3d408999457a
+2025/09/18 12:54:39 server.go:74: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Connection:[keep-alive] Postman-Token:[2bdb6118-ebde-4995-93f8-0aa44c030e56] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/18 12:54:45 server.go:73: [DEBUG] Request to DELETE /route-access/delete/38492fe7-33a6-4cda-8cf4-3d408999457a
+2025/09/18 12:54:45 server.go:74: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Connection:[keep-alive] Postman-Token:[8094031f-ba8a-409c-b0ec-6cc1152654c8] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/18 12:56:19 server.go:40: [INFO] Logging initialized. Outputting to terminal and file.
+2025/09/18 12:56:19 redisClient.go:28: ✅ Connected to Redis
+2025/09/18 12:56:19 server.go:51: [INFO] Initializing server...
+2025/09/18 12:56:19 server.go:64: [INFO] Setting up router...
+2025/09/18 12:56:19 server.go:66: [INFO] Router setup completed.
+2025/09/18 12:56:19 server.go:99: [INFO] Starting server at 0.0.0.0:8888...
+2025/09/18 12:57:00 server.go:73: [DEBUG] Request to POST /route-access/create
+2025/09/18 12:57:00 server.go:74: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Connection:[keep-alive] Content-Length:[120] Content-Type:[application/json] Postman-Token:[275a5fd6-6acb-465d-9ed5-6d5b9c9bb6a2] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/18 12:57:14 server.go:73: [DEBUG] Request to POST /users/login
+2025/09/18 12:57:14 server.go:74: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Connection:[keep-alive] Content-Length:[72] Content-Type:[application/json] Postman-Token:[19139827-88af-4cdf-a54e-5bbc6381bd7e] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/18 12:57:34 server.go:73: [DEBUG] Request to POST /route-access/create
+2025/09/18 12:57:34 server.go:74: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Authorization:[Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhNzI3YjhlMS1hZTY2LTRhOTYtYTc2YS1iOTVkYjdhMGZjMmEiLCJlbWFpbCI6IndlbGxzQGdvbGFuZy5jb20iLCJyb2xlcyI6WyJBZG1pbiJdLCJwZXJtaXNzaW9ucyI6W3sibmFtZSI6IkFkbWluIiwiY2FuX2NyZWF0ZSI6dHJ1ZSwiY2FuX3JlYWQiOnRydWUsImNhbl91cGRhdGUiOnRydWUsImNhbl9kZWxldGUiOnRydWUsImNhbl9leHBvcnQiOnRydWUsImNhbl9pbXBvcnQiOnRydWUsImNhbl92aWV3Ijp0cnVlfV0sImlzcyI6IndlbGxzLWFwaSIsImV4cCI6MTc1ODI2MTQzNCwiaWF0IjoxNzU4MTc1MDM0fQ.iEatd_J-a9q3QWkShK6J15RSXdEXyLaK5y9CXqKWknA] Connection:[keep-alive] Content-Length:[119] Content-Type:[application/json] Postman-Token:[8540e765-f093-4279-abd4-82120115daab] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/18 12:57:50 server.go:73: [DEBUG] Request to GET /roles/get/all/role
+2025/09/18 12:57:50 server.go:74: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Authorization:[Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFyZGlhbnN5YWh3ZWxseTE5OTJAZ21haWwuY29tIiwiZXhwIjoxNzU3OTQ0MDA2LCJyb2xlIjoiIiwic3ViIjoiNDg0ODg4N2EtNGY3Yi00NDE3LTg1ZDItYmUxY2Y5YTU1NDMxIn0.yFxNj8-OjBmHPE8yCenuxa1jRs8QgKoV2IGLlfo8eHg] Connection:[keep-alive] Postman-Token:[daa85853-2124-4376-a9b4-2be1586860cf] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/18 12:57:55 server.go:73: [DEBUG] Request to GET /roles/get/all/role
+2025/09/18 12:57:55 server.go:74: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Authorization:[Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhNzI3YjhlMS1hZTY2LTRhOTYtYTc2YS1iOTVkYjdhMGZjMmEiLCJlbWFpbCI6IndlbGxzQGdvbGFuZy5jb20iLCJyb2xlcyI6WyJBZG1pbiJdLCJwZXJtaXNzaW9ucyI6W3sibmFtZSI6IkFkbWluIiwiY2FuX2NyZWF0ZSI6dHJ1ZSwiY2FuX3JlYWQiOnRydWUsImNhbl91cGRhdGUiOnRydWUsImNhbl9kZWxldGUiOnRydWUsImNhbl9leHBvcnQiOnRydWUsImNhbl9pbXBvcnQiOnRydWUsImNhbl92aWV3Ijp0cnVlfV0sImlzcyI6IndlbGxzLWFwaSIsImV4cCI6MTc1ODI2MTQzNCwiaWF0IjoxNzU4MTc1MDM0fQ.iEatd_J-a9q3QWkShK6J15RSXdEXyLaK5y9CXqKWknA] Connection:[keep-alive] Postman-Token:[a5ab4a9b-d94a-403c-94db-bff9ca32923c] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/18 12:58:11 server.go:73: [DEBUG] Request to POST /users/login
+2025/09/18 12:58:11 server.go:74: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Connection:[keep-alive] Content-Length:[71] Content-Type:[application/json] Postman-Token:[e54a8f0e-629d-47c0-ad2a-ce0fa615847e] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/18 12:58:19 server.go:73: [DEBUG] Request to GET /roles/get/all/role
+2025/09/18 12:58:19 server.go:74: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Authorization:[Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3ZTA5OWE4Mi02OWNlLTQ3ZWQtYmEwNC1mNWJkYjY3MDEzN2UiLCJlbWFpbCI6InVzZXJAZ29sYW5nLmNvbSIsInJvbGVzIjpbIlVzZXIiXSwicGVybWlzc2lvbnMiOlt7Im5hbWUiOiJVc2VyIiwiY2FuX2NyZWF0ZSI6ZmFsc2UsImNhbl9yZWFkIjp0cnVlLCJjYW5fdXBkYXRlIjpmYWxzZSwiY2FuX2RlbGV0ZSI6ZmFsc2UsImNhbl9leHBvcnQiOnRydWUsImNhbl9pbXBvcnQiOnRydWUsImNhbl92aWV3Ijp0cnVlfV0sImlzcyI6IndlbGxzLWFwaSIsImV4cCI6MTc1ODI2MTQ5MSwiaWF0IjoxNzU4MTc1MDkxfQ.3xvyq15NsCBQDRnWJKgME_3Utt2fp015tfizWitTkMk] Connection:[keep-alive] Postman-Token:[acaa8e5f-c09d-4ee5-aa64-fef1a210c42d] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/18 12:58:34 server.go:73: [DEBUG] Request to POST /route-access/create
+2025/09/18 12:58:34 server.go:74: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Authorization:[Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhNzI3YjhlMS1hZTY2LTRhOTYtYTc2YS1iOTVkYjdhMGZjMmEiLCJlbWFpbCI6IndlbGxzQGdvbGFuZy5jb20iLCJyb2xlcyI6WyJBZG1pbiJdLCJwZXJtaXNzaW9ucyI6W3sibmFtZSI6IkFkbWluIiwiY2FuX2NyZWF0ZSI6dHJ1ZSwiY2FuX3JlYWQiOnRydWUsImNhbl91cGRhdGUiOnRydWUsImNhbl9kZWxldGUiOnRydWUsImNhbl9leHBvcnQiOnRydWUsImNhbl9pbXBvcnQiOnRydWUsImNhbl92aWV3Ijp0cnVlfV0sImlzcyI6IndlbGxzLWFwaSIsImV4cCI6MTc1ODI2MTQzNCwiaWF0IjoxNzU4MTc1MDM0fQ.iEatd_J-a9q3QWkShK6J15RSXdEXyLaK5y9CXqKWknA] Connection:[keep-alive] Content-Length:[118] Content-Type:[application/json] Postman-Token:[38887801-c7ce-4062-ab7d-6d867ceeb4bb] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/18 12:58:38 server.go:73: [DEBUG] Request to GET /roles/get/all/role
+2025/09/18 12:58:38 server.go:74: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Authorization:[Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3ZTA5OWE4Mi02OWNlLTQ3ZWQtYmEwNC1mNWJkYjY3MDEzN2UiLCJlbWFpbCI6InVzZXJAZ29sYW5nLmNvbSIsInJvbGVzIjpbIlVzZXIiXSwicGVybWlzc2lvbnMiOlt7Im5hbWUiOiJVc2VyIiwiY2FuX2NyZWF0ZSI6ZmFsc2UsImNhbl9yZWFkIjp0cnVlLCJjYW5fdXBkYXRlIjpmYWxzZSwiY2FuX2RlbGV0ZSI6ZmFsc2UsImNhbl9leHBvcnQiOnRydWUsImNhbl9pbXBvcnQiOnRydWUsImNhbl92aWV3Ijp0cnVlfV0sImlzcyI6IndlbGxzLWFwaSIsImV4cCI6MTc1ODI2MTQ5MSwiaWF0IjoxNzU4MTc1MDkxfQ.3xvyq15NsCBQDRnWJKgME_3Utt2fp015tfizWitTkMk] Connection:[keep-alive] Postman-Token:[1e758b9c-bb9a-4939-a63f-46dd899d0b04] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/18 12:58:56 server.go:73: [DEBUG] Request to GET /roles/get/all/role
+2025/09/18 12:58:56 server.go:74: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Authorization:[Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3ZTA5OWE4Mi02OWNlLTQ3ZWQtYmEwNC1mNWJkYjY3MDEzN2UiLCJlbWFpbCI6InVzZXJAZ29sYW5nLmNvbSIsInJvbGVzIjpbIlVzZXIiXSwicGVybWlzc2lvbnMiOlt7Im5hbWUiOiJVc2VyIiwiY2FuX2NyZWF0ZSI6ZmFsc2UsImNhbl9yZWFkIjp0cnVlLCJjYW5fdXBkYXRlIjpmYWxzZSwiY2FuX2RlbGV0ZSI6ZmFsc2UsImNhbl9leHBvcnQiOnRydWUsImNhbl9pbXBvcnQiOnRydWUsImNhbl92aWV3Ijp0cnVlfV0sImlzcyI6IndlbGxzLWFwaSIsImV4cCI6MTc1ODI2MTQ5MSwiaWF0IjoxNzU4MTc1MDkxfQ.3xvyq15NsCBQDRnWJKgME_3Utt2fp015tfizWitTkMk] Connection:[keep-alive] Postman-Token:[7de50c89-9220-430c-924b-d435ca334cdd] User-Agent:[PostmanRuntime/7.46.1]]

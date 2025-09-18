@@ -1,6 +1,7 @@
 package usecases
 
 import (
+	"context"
 	"errors"
 	"strings"
 	"time"
@@ -9,6 +10,7 @@ import (
 	"wells-go/domain/entities"
 	"wells-go/domain/repositories"
 	"wells-go/infrastructure/config"
+	"wells-go/infrastructure/redis"
 	"wells-go/util/security"
 
 	"github.com/google/uuid"
@@ -84,7 +86,7 @@ func (uc *UserUsecase) Login(req dtos.LoginRequest) (string, error) {
 	if bcrypt.CompareHashAndPassword([]byte(user.Password), []byte(req.Password)) != nil {
 		return "", errors.New("invalid credentials")
 	}
-	
+
 	roles := []string{user.Role.Name}
 	perms := []security.Permission{}
 	for _, p := range user.Role.Permissions {
@@ -109,6 +111,11 @@ func (uc *UserUsecase) Login(req dtos.LoginRequest) (string, error) {
 	)
 	if err != nil {
 		return "", err
+	}
+
+	err = redis.Rdb.Set(context.Background(), "jwt:"+token, "active", 24*time.Hour).Err()
+	if err != nil {
+		return "", errors.New("failed to save token in redis")
 	}
 
 	return token, nil

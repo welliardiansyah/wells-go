@@ -11,6 +11,7 @@ import (
 	"wells-go/infrastructure/config"
 	"wells-go/interfaces/http/permission"
 	"wells-go/interfaces/http/role"
+	routes "wells-go/interfaces/http/routeAccess"
 	"wells-go/interfaces/http/users"
 	"wells-go/util/cors"
 	"wells-go/util/security"
@@ -89,6 +90,7 @@ func (server *Server) setupRouter() {
 	users.RouteUsers(server.DB, publicRoutes, server.Config, server.Security)
 	role.RouteRoles(server.DB, publicRoutes, server.Config, server.Security)
 	permission.RoutePermissions(server.DB, publicRoutes, server.Config, server.Security)
+	routes.RouteAccessRoutes(server.DB, publicRoutes, server.Security)
 
 	server.Engine = router
 }

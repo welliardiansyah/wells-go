@@ -43,10 +43,16 @@ func formatDuration(ms int64) string {
 	return fmt.Sprintf("%d ms", ms)
 }
 
-func SuccessResponse(w http.ResponseWriter, message string, data interface{}, startedAt time.Time) {
+func SuccessResponse(w http.ResponseWriter, message string, data ...interface{}) {
+	startedAt := time.Now()
 	w.Header().Set("Content-Type", "application/json")
 	statusCode := http.StatusOK
 	w.WriteHeader(statusCode)
+
+	var resData interface{}
+	if len(data) > 0 {
+		resData = data[0]
+	}
 
 	elapsed := time.Since(startedAt).Milliseconds()
 	json.NewEncoder(w).Encode(Response{
@@ -55,11 +61,12 @@ func SuccessResponse(w http.ResponseWriter, message string, data interface{}, st
 		Message:    message,
 		Timestamp:  localTimeNow(),
 		Duration:   formatDuration(elapsed),
-		Data:       data,
+		Data:       resData,
 	})
 }
 
-func ErrorResponse(w http.ResponseWriter, statusCode int, message string, err interface{}, startedAt time.Time) {
+func ErrorResponse(w http.ResponseWriter, statusCode int, message string, err interface{}) {
+	startedAt := time.Now()
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(statusCode)
 

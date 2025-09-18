@@ -1,118 +1,95 @@
 package middleware
 
 import (
+	"github.com/gin-gonic/gin"
 	"net/http"
 	"strings"
-	"time"
+	"wells-go/domain/repositories"
 	"wells-go/response"
 	"wells-go/util/security"
-
-	"github.com/gin-gonic/gin"
 )
 
-func RoleAndPermissionMiddleware(allowedRoles []string, allowedActions []string) gin.HandlerFunc {
+func RoleAndPermissionMiddlewareDynamic(repo repositories.RouteAccessRepository) gin.HandlerFunc {
 	return func(c *gin.Context) {
-		startedAt := time.Now()
+		routePath := c.FullPath()
+		method := c.Request.Method
 
-		roleI, exists := c.Get("roles")
-		if !exists {
-			response.ErrorResponse(c.Writer, http.StatusForbidden, "Roles not found", nil, startedAt)
+		rawRoles, rolesExist := c.Get("roles")
+		rawPermissions, permsExist := c.Get("permissions")
+		if !rolesExist || !permsExist {
+			response.ErrorResponse(c.Writer, http.StatusUnauthorized, "roles or permissions not found in context", nil)
 			c.Abort()
 			return
 		}
 
-		userRoles, ok := roleI.([]string)
-		if !ok {
-			response.ErrorResponse(c.Writer, http.StatusForbidden, "Invalid roles type", nil, startedAt)
+		roles := rawRoles.([]string)
+		permissions := rawPermissions.([]security.Permission)
+
+		accessList, err := repo.GetAccessByRoute(method, routePath)
+		if err != nil {
+			response.ErrorResponse(c.Writer, http.StatusInternalServerError, err.Error(), nil)
 			c.Abort()
 			return
 		}
 
-		hasRole := false
-		for _, r := range userRoles {
-			if stringInSliceCI(r, allowedRoles) {
-				hasRole = true
-				break
-			}
-		}
-		if !hasRole {
-			response.ErrorResponse(c.Writer, http.StatusForbidden, "Role not allowed", nil, startedAt)
-			c.Abort()
-			return
-		}
+		allowed := false
 
-		permsI, exists := c.Get("permissions")
-		if !exists {
-			response.ErrorResponse(c.Writer, http.StatusForbidden, "Permissions not found", nil, startedAt)
-			c.Abort()
-			return
-		}
-
-		perms, ok := permsI.([]security.Permission)
-		if !ok {
-			response.ErrorResponse(c.Writer, http.StatusForbidden, "Invalid permissions type", nil, startedAt)
-			c.Abort()
-			return
-		}
-
-		hasPermission := false
-		for _, perm := range perms {
-			for _, action := range allowedActions {
-				switch strings.ToLower(action) {
-				case "create":
-					if perm.CanCreate {
-						hasPermission = true
-					}
-				case "read":
-					if perm.CanRead {
-						hasPermission = true
-					}
-				case "update":
-					if perm.CanUpdate {
-						hasPermission = true
-					}
-				case "delete":
-					if perm.CanDelete {
-						hasPermission = true
-					}
-				case "export":
-					if perm.CanExport {
-						hasPermission = true
-					}
-				case "import":
-					if perm.CanImport {
-						hasPermission = true
-					}
-				case "view":
-					if perm.CanView {
-						hasPermission = true
+		for _, access := range accessList {
+			for _, role := range roles {
+				if strings.EqualFold(access.RoleName, role) {
+					for _, perm := range permissions {
+						if perm.Name == role {
+							switch strings.ToLower(access.PermissionName) {
+							case "create":
+								if perm.CanCreate {
+									allowed = true
+								}
+							case "read":
+								if perm.CanRead {
+									allowed = true
+								}
+							case "update":
+								if perm.CanUpdate {
+									allowed = true
+								}
+							case "delete":
+								if perm.CanDelete {
+									allowed = true
+								}
+							case "export":
+								if perm.CanExport {
+									allowed = true
+								}
+							case "import":
+								if perm.CanImport {
+									allowed = true
+								}
+							case "view":
+								if perm.CanView {
+									allowed = true
+								}
+							}
+							if allowed {
+								break
+							}
+						}
 					}
 				}
-				if hasPermission {
+				if allowed {
 					break
 				}
 			}
-			if hasPermission {
+			if allowed {
 				break
 			}
 		}
 
-		if !hasPermission {
-			response.ErrorResponse(c.Writer, http.StatusForbidden, "Access denied for this action", nil, startedAt)
+		if !allowed {
+			response.ErrorResponse(c.Writer, http.StatusForbidden, "access denied", nil)
 			c.Abort()
 			return
 		}
 
 		c.Next()
 	}
-}
-
-func stringInSliceCI(s string, list []string) bool {
-	s = strings.ToLower(s)
-	for _, a := range list {
-		if s == strings.ToLower(a) {
-			return true
-		}
-	}
-	return false
 }
