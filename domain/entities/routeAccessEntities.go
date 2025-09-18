@@ -18,7 +18,7 @@ type RouteAccessEntities struct {
 }
 
 func (RouteAccessEntities) TableName() string {
-	return "route_access"
+	return "wells_route_access"
 }
 
 func (r *RouteAccessEntities) BeforeCreate(tx *gorm.DB) (err error) {

@@ -56,3 +56,15 @@ func (r *RouteAccessRepositoryImpl) Delete(id uuid.UUID) error {
 	}
 	return r.db.Delete(&route).Error
 }
+
+func (r *RouteAccessRepositoryImpl) GetAllByRole(role string) ([]entities.RouteAccessEntities, error) {
+	var routes []entities.RouteAccessEntities
+	err := r.db.Where("role_name = ?", role).Find(&routes).Error
+	return routes, err
+}
+
+func (r *RouteAccessRepositoryImpl) GetAllByRoleName(roleName string) ([]entities.RouteAccessEntities, error) {
+	var routes []entities.RouteAccessEntities
+	err := r.db.Where("LOWER(role_name) = LOWER(?)", roleName).Find(&routes).Error
+	return routes, err
+}

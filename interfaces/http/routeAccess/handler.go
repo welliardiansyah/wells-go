@@ -8,6 +8,7 @@ import (
 	"wells-go/application/mappers"
 	"wells-go/application/usecases"
 	"wells-go/response"
+	"wells-go/util/security"
 )
 
 type RouteAccessHandler struct {
@@ -95,4 +96,49 @@ func (h *RouteAccessHandler) Delete(c *gin.Context) {
 		return
 	}
 	response.SuccessResponse(c.Writer, "Delete route access successfully", nil)
+}
+
+func (h *RouteAccessHandler) GetAllByRole(c *gin.Context) {
+	authPayloadAny, ok := c.Get(security.AuthorizationPayloadKey)
+	if !ok {
+		response.ErrorResponse(c.Writer, http.StatusUnauthorized, "authorization payload not found", nil)
+		return
+	}
+
+	payload, ok := authPayloadAny.(*security.Payload)
+	if !ok {
+		response.ErrorResponse(c.Writer, http.StatusUnauthorized, "invalid authorization payload", nil)
+		return
+	}
+
+	if payload.Roles == nil || len(payload.Roles) == 0 {
+		response.ErrorResponse(c.Writer, http.StatusUnauthorized, "roles not found in token", nil)
+		return
+	}
+
+	role := payload.Roles[0]
+
+	data, err := h.usecase.GetAllByRole(role)
+	if err != nil {
+		response.ErrorResponse(c.Writer, http.StatusInternalServerError, err.Error(), nil)
+		return
+	}
+
+	response.SuccessResponse(c.Writer, "Get route access by role successfully", data)
+}
+
+func (h *RouteAccessHandler) GetAllByName(c *gin.Context) {
+	var req dtos.GetByNameRequest
+	if err := c.ShouldBindJSON(&req); err != nil {
+		response.ErrorResponse(c.Writer, http.StatusBadRequest, "invalid request body", err.Error())
+		return
+	}
+
+	data, err := h.usecase.GetAllByRoleName(req.RoleName)
+	if err != nil {
+		response.ErrorResponse(c.Writer, http.StatusInternalServerError, err.Error(), nil)
+		return
+	}
+
+	response.SuccessResponse(c.Writer, "Get route access by name successfully", mappers.ToRouteAccessResponseList(data))
 }

@@ -12,4 +12,6 @@ type RouteAccessRepository interface {
 	Create(routeAccess *entities.RouteAccessEntities) error
 	Update(routeAccess *entities.RouteAccessEntities) error
 	Delete(id uuid.UUID) error
+	GetAllByRole(role string) ([]entities.RouteAccessEntities, error)
+	GetAllByRoleName(roleName string) ([]entities.RouteAccessEntities, error)
 }

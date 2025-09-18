@@ -13,6 +13,7 @@ func Migrate(db *gorm.DB) error {
 		&entities.RoleEntity{},
 		&entities.PermissionEntity{},
 		&entities.RouteAccessEntities{},
+		&entities.PathRouteEntities{},
 	}
 
 	for _, model := range models {

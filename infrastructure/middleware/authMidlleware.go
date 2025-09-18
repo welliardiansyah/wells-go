@@ -14,7 +14,6 @@ import (
 func AuthMiddleware(maker security.Maker) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		authHeader := c.GetHeader("Authorization")
-
 		if authHeader == "" {
 			response.ErrorResponse(c.Writer, http.StatusUnauthorized, "Authorization header missing", nil)
 			c.Abort()
@@ -44,10 +43,16 @@ func AuthMiddleware(maker security.Maker) gin.HandlerFunc {
 			return
 		}
 
+		if payload.Roles == nil || len(payload.Roles) == 0 {
+			response.ErrorResponse(c.Writer, http.StatusUnauthorized, "roles not found in token", nil)
+			c.Abort()
+			return
+		}
+
+		c.Set(security.AuthorizationPayloadKey, payload)
 		c.Set("user_id", payload.UserID)
 		c.Set("roles", payload.Roles)
 		c.Set("permissions", payload.Permissions)
-
 		c.Next()
 	}
 }

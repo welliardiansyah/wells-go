@@ -16,10 +16,13 @@ func RouteAccessRoutes(db *gorm.DB, router *gin.RouterGroup, maker security.Make
 
 	protected := router.Group("/api/v1/route-access")
 	protected.Use(middleware.AuthMiddleware(maker))
+	protected.Use(middleware.RoleAndPermissionMiddlewareDynamic(repo))
 
 	protected.GET("/get/all", controller.GetAll)
 	protected.GET("/get/:id", controller.GetByID)
 	protected.POST("/create", controller.Create)
 	protected.PUT("/update/:id", controller.Update)
 	protected.DELETE("/delete/:id", controller.Delete)
+	protected.GET("/get/by-role", controller.GetAllByRole)
+	protected.POST("/get/by-name", controller.GetAllByName)
 }

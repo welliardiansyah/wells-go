@@ -14,16 +14,18 @@ import (
 func RouteUsers(db *gorm.DB, router *gin.RouterGroup, cfg *config.Config, maker security.Maker) {
 	repo := persistence.NewUserRepository(db)
 	repoRole := persistence.NewRoleRepositoryImpl(db)
+	repoAccess := persistence.NewRouteAccessRepositoryImpl(db)
 	usecase := usecases.NewUserUsecase(repo, repoRole, cfg, maker)
 	controller := NewUserController(usecase)
 
 	// Public routes
-	router.POST("/users/register", controller.Register)
-	router.POST("/users/login", controller.Login)
+	router.POST("/api/v1/users/register", controller.Register)
+	router.POST("/api/v1/users/login", controller.Login)
 
 	// Protected routes (JWT middleware)
-	protected := router.Group("/users")
+	protected := router.Group("/api/v1/users")
 	protected.Use(middleware.AuthMiddleware(maker))
+	protected.Use(middleware.RoleAndPermissionMiddlewareDynamic(repoAccess))
 
 	protected.GET("/", controller.GetUsers)
 	protected.GET("/:id", controller.GetUserByID)

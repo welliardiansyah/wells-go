@@ -12,11 +12,13 @@ import (
 
 func RoutePermissions(db *gorm.DB, router *gin.RouterGroup, cfg *config.Config, maker security.Maker) {
 	repo := persistence.NewPermissionRepositoryImpl(db)
+	repoAccess := persistence.NewRouteAccessRepositoryImpl(db)
 	usecase := usecases.NewPermissionUsecase(repo)
 	controller := NewPermissionController(usecase)
 
-	protected := router.Group("/permissions")
+	protected := router.Group("/api/v1/permissions")
 	protected.Use(middleware.AuthMiddleware(maker))
+	protected.Use(middleware.RoleAndPermissionMiddlewareDynamic(repoAccess))
 
 	protected.POST("/create", controller.Create)
 	protected.GET("/get/all", controller.FindAll)

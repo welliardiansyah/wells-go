@@ -9,6 +9,9 @@ import (
 	"os"
 	"time"
 	"wells-go/infrastructure/config"
+	"wells-go/infrastructure/middleware"
+	"wells-go/infrastructure/persistence"
+	"wells-go/interfaces/http/pathRoute"
 	"wells-go/interfaces/http/permission"
 	"wells-go/interfaces/http/role"
 	routes "wells-go/interfaces/http/routeAccess"
@@ -91,6 +94,14 @@ func (server *Server) setupRouter() {
 	role.RouteRoles(server.DB, publicRoutes, server.Config, server.Security)
 	permission.RoutePermissions(server.DB, publicRoutes, server.Config, server.Security)
 	routes.RouteAccessRoutes(server.DB, publicRoutes, server.Security)
+	pathRoute.RoutePathRoute(server.DB, publicRoutes, server.Config, server.Security)
+
+	// ====================================================================================
+	// Autoseed Routes in Database
+	// ====================================================================================
+	routeRepo := persistence.NewPathRouteRepositoryImpl(server.DB)
+	middleware.SeedAllRoutesFromRouter(router, routeRepo)
+	log.Println("[INFO] All routes have been auto-seeded to database")
 
 	server.Engine = router
 }
