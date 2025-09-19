@@ -8,12 +8,12 @@ import (
 )
 
 type PathRouteEntities struct {
-	ID        uuid.UUID `gorm:"type:uuid;primaryKey"`
-	Name      string    `gorm:"size:255;not null"`
-	Path      string    `gorm:"size:255;not null"`
-	Method    string    `gorm:"size:10;not null"`
-	CreatedAt time.Time
-	UpdatedAt time.Time
+	ID        uuid.UUID `gorm:"type:uuid;primaryKey" json:"id"`
+	Name      string    `gorm:"size:255;not null" json:"name"`
+	Path      string    `gorm:"size:255;not null" json:"path"`
+	Method    string    `gorm:"size:10;not null" json:"method"`
+	CreatedAt time.Time `json:"created_at"`
+	UpdatedAt time.Time `json:"updated_at"`
 }
 
 func (PathRouteEntities) TableName() string {

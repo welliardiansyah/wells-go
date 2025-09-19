@@ -7,7 +7,6 @@ func ToPagingResponseFlat[T any](items []T, page, limit int, total int64) dtos.P
 	if limit > 0 {
 		totalPages = (total + int64(limit) - 1) / int64(limit)
 	}
-
 	return dtos.PagingResponseFlat[T]{
 		Data:       items,
 		Page:       page,
