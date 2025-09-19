@@ -14,7 +14,7 @@ func RouteAccessRoutes(db *gorm.DB, router *gin.RouterGroup, maker security.Make
 	usecase := usecases.NewRouteAccessUsecase(repo)
 	controller := NewRouteAccessHandler(usecase)
 
-	protected := router.Group("/api/v1/route-access")
+	protected := router.Group("/route-access")
 	protected.Use(middleware.AuthMiddleware(maker))
 	protected.Use(middleware.RoleAndPermissionMiddlewareDynamic(repo))
 

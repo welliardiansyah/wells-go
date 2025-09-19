@@ -18,7 +18,7 @@ func RouteRoles(db *gorm.DB, router *gin.RouterGroup, cfg *config.Config, maker 
 	usecase := usecases.NewRoleUsecase(repo, repoPermission)
 	controller := NewRoleController(usecase)
 
-	protected := router.Group("/api/v1/roles")
+	protected := router.Group("/roles")
 	protected.Use(middleware.AuthMiddleware(maker))
 	protected.Use(middleware.RoleAndPermissionMiddlewareDynamic(repoAccess))
 

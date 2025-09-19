@@ -1,0 +1,66 @@
+2025/09/19 20:18:00 server.go:43: [INFO] Logging initialized. Outputting to terminal and file.
+2025/09/19 20:18:00 redisClient.go:28: ✅ Connected to Redis
+2025/09/19 20:18:01 server.go:54: [INFO] Initializing server...
+2025/09/19 20:18:01 server.go:67: [INFO] Setting up router...
+2025/09/19 20:18:01 server.go:104: [INFO] All routes have been auto-seeded to database
+2025/09/19 20:18:01 server.go:69: [INFO] Router setup completed.
+2025/09/19 20:18:01 server.go:110: [INFO] Starting server at 0.0.0.0:8888...
+2025/09/19 20:21:37 server.go:76: [DEBUG] Request to GET /api/v1/path-route
+2025/09/19 20:21:37 server.go:77: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Authorization:[Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhNzI3YjhlMS1hZTY2LTRhOTYtYTc2YS1iOTVkYjdhMGZjMmEiLCJlbWFpbCI6IndlbGxzQGdvbGFuZy5jb20iLCJyb2xlcyI6WyJBZG1pbiJdLCJwZXJtaXNzaW9ucyI6W3sibmFtZSI6IkFkbWluIiwiY2FuX2NyZWF0ZSI6dHJ1ZSwiY2FuX3JlYWQiOnRydWUsImNhbl91cGRhdGUiOnRydWUsImNhbl9kZWxldGUiOnRydWUsImNhbl9leHBvcnQiOnRydWUsImNhbl9pbXBvcnQiOnRydWUsImNhbl92aWV3Ijp0cnVlfV0sImlzcyI6IndlbGxzLWFwaSIsImV4cCI6MTc1ODI2OTA5MCwiaWF0IjoxNzU4MTgyNjkwfQ.oBnKofgJhdEkPgaTMzS_iws0iw0SCCPpipmbkYEiVoE] Connection:[keep-alive] Content-Type:[application/json] Postman-Token:[1abed992-a513-4360-9790-e71a04539736] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/19 20:22:18 server.go:76: [DEBUG] Request to POST /api/v1/users/login
+2025/09/19 20:22:18 server.go:77: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Connection:[keep-alive] Content-Length:[69] Content-Type:[application/json] Postman-Token:[580ced1b-2614-4686-b533-d3075b6d04c2] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/19 20:22:34 server.go:76: [DEBUG] Request to GET /api/v1/path-route
+2025/09/19 20:22:34 server.go:77: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Authorization:[Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhNzI3YjhlMS1hZTY2LTRhOTYtYTc2YS1iOTVkYjdhMGZjMmEiLCJlbWFpbCI6IndlbGxzQGdvbGFuZy5jb20iLCJyb2xlcyI6WyJBZG1pbiJdLCJwZXJtaXNzaW9ucyI6W3sibmFtZSI6IkFkbWluIiwiY2FuX2NyZWF0ZSI6dHJ1ZSwiY2FuX3JlYWQiOnRydWUsImNhbl91cGRhdGUiOnRydWUsImNhbl9kZWxldGUiOnRydWUsImNhbl9leHBvcnQiOnRydWUsImNhbl9pbXBvcnQiOnRydWUsImNhbl92aWV3Ijp0cnVlfV0sImlzcyI6IndlbGxzLWFwaSIsImV4cCI6MTc1ODM3NDUzOCwiaWF0IjoxNzU4Mjg4MTM4fQ.I6MltHZ7hNjlV-4hEDPl6JABy0qXbmz2gk64u3fT-Xo] Connection:[keep-alive] Content-Type:[application/json] Postman-Token:[196b02fe-5579-4b51-b6d4-3421a6debd7a] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/19 20:30:47 server.go:43: [INFO] Logging initialized. Outputting to terminal and file.
+2025/09/19 20:30:47 redisClient.go:28: ✅ Connected to Redis
+2025/09/19 20:30:47 server.go:54: [INFO] Initializing server...
+2025/09/19 20:30:47 server.go:67: [INFO] Setting up router...
+2025/09/19 20:30:47 server.go:104: [INFO] All routes have been auto-seeded to database
+2025/09/19 20:30:47 server.go:69: [INFO] Router setup completed.
+2025/09/19 20:30:47 server.go:110: [INFO] Starting server at 0.0.0.0:8888...
+2025/09/19 20:30:52 server.go:76: [DEBUG] Request to GET /api/v1/path-route
+2025/09/19 20:30:52 server.go:77: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Authorization:[Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhNzI3YjhlMS1hZTY2LTRhOTYtYTc2YS1iOTVkYjdhMGZjMmEiLCJlbWFpbCI6IndlbGxzQGdvbGFuZy5jb20iLCJyb2xlcyI6WyJBZG1pbiJdLCJwZXJtaXNzaW9ucyI6W3sibmFtZSI6IkFkbWluIiwiY2FuX2NyZWF0ZSI6dHJ1ZSwiY2FuX3JlYWQiOnRydWUsImNhbl91cGRhdGUiOnRydWUsImNhbl9kZWxldGUiOnRydWUsImNhbl9leHBvcnQiOnRydWUsImNhbl9pbXBvcnQiOnRydWUsImNhbl92aWV3Ijp0cnVlfV0sImlzcyI6IndlbGxzLWFwaSIsImV4cCI6MTc1ODM3NDUzOCwiaWF0IjoxNzU4Mjg4MTM4fQ.I6MltHZ7hNjlV-4hEDPl6JABy0qXbmz2gk64u3fT-Xo] Connection:[keep-alive] Content-Type:[application/json] Postman-Token:[31b1ac35-a4f3-47ae-a7cb-e23d9c03c070] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/19 20:30:57 server.go:76: [DEBUG] Request to GET /api/v1/path-route
+2025/09/19 20:30:57 server.go:77: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Authorization:[Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhNzI3YjhlMS1hZTY2LTRhOTYtYTc2YS1iOTVkYjdhMGZjMmEiLCJlbWFpbCI6IndlbGxzQGdvbGFuZy5jb20iLCJyb2xlcyI6WyJBZG1pbiJdLCJwZXJtaXNzaW9ucyI6W3sibmFtZSI6IkFkbWluIiwiY2FuX2NyZWF0ZSI6dHJ1ZSwiY2FuX3JlYWQiOnRydWUsImNhbl91cGRhdGUiOnRydWUsImNhbl9kZWxldGUiOnRydWUsImNhbl9leHBvcnQiOnRydWUsImNhbl9pbXBvcnQiOnRydWUsImNhbl92aWV3Ijp0cnVlfV0sImlzcyI6IndlbGxzLWFwaSIsImV4cCI6MTc1ODM3NDUzOCwiaWF0IjoxNzU4Mjg4MTM4fQ.I6MltHZ7hNjlV-4hEDPl6JABy0qXbmz2gk64u3fT-Xo] Connection:[keep-alive] Content-Type:[application/json] Postman-Token:[1cbfa4d2-1e65-465a-985c-4b76309d0bc6] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/19 20:32:41 server.go:43: [INFO] Logging initialized. Outputting to terminal and file.
+2025/09/19 20:32:41 redisClient.go:28: ✅ Connected to Redis
+2025/09/19 20:32:41 server.go:54: [INFO] Initializing server...
+2025/09/19 20:32:41 server.go:67: [INFO] Setting up router...
+2025/09/19 20:32:41 server.go:104: [INFO] All routes have been auto-seeded to database
+2025/09/19 20:32:41 server.go:69: [INFO] Router setup completed.
+2025/09/19 20:32:41 server.go:110: [INFO] Starting server at 0.0.0.0:8888...
+2025/09/19 20:32:47 server.go:76: [DEBUG] Request to GET /api/v1/path-route
+2025/09/19 20:32:47 server.go:77: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Authorization:[Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhNzI3YjhlMS1hZTY2LTRhOTYtYTc2YS1iOTVkYjdhMGZjMmEiLCJlbWFpbCI6IndlbGxzQGdvbGFuZy5jb20iLCJyb2xlcyI6WyJBZG1pbiJdLCJwZXJtaXNzaW9ucyI6W3sibmFtZSI6IkFkbWluIiwiY2FuX2NyZWF0ZSI6dHJ1ZSwiY2FuX3JlYWQiOnRydWUsImNhbl91cGRhdGUiOnRydWUsImNhbl9kZWxldGUiOnRydWUsImNhbl9leHBvcnQiOnRydWUsImNhbl9pbXBvcnQiOnRydWUsImNhbl92aWV3Ijp0cnVlfV0sImlzcyI6IndlbGxzLWFwaSIsImV4cCI6MTc1ODM3NDUzOCwiaWF0IjoxNzU4Mjg4MTM4fQ.I6MltHZ7hNjlV-4hEDPl6JABy0qXbmz2gk64u3fT-Xo] Connection:[keep-alive] Content-Type:[application/json] Postman-Token:[f9f4cccb-87c8-4c9a-970d-44cf4a19eb88] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/19 20:32:52 server.go:76: [DEBUG] Request to GET /api/v1/path-route
+2025/09/19 20:32:52 server.go:77: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Authorization:[Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhNzI3YjhlMS1hZTY2LTRhOTYtYTc2YS1iOTVkYjdhMGZjMmEiLCJlbWFpbCI6IndlbGxzQGdvbGFuZy5jb20iLCJyb2xlcyI6WyJBZG1pbiJdLCJwZXJtaXNzaW9ucyI6W3sibmFtZSI6IkFkbWluIiwiY2FuX2NyZWF0ZSI6dHJ1ZSwiY2FuX3JlYWQiOnRydWUsImNhbl91cGRhdGUiOnRydWUsImNhbl9kZWxldGUiOnRydWUsImNhbl9leHBvcnQiOnRydWUsImNhbl9pbXBvcnQiOnRydWUsImNhbl92aWV3Ijp0cnVlfV0sImlzcyI6IndlbGxzLWFwaSIsImV4cCI6MTc1ODM3NDUzOCwiaWF0IjoxNzU4Mjg4MTM4fQ.I6MltHZ7hNjlV-4hEDPl6JABy0qXbmz2gk64u3fT-Xo] Connection:[keep-alive] Content-Type:[application/json] Postman-Token:[ffebfb33-6e67-42aa-8052-d4b37fb578a8] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/19 20:37:41 server.go:43: [INFO] Logging initialized. Outputting to terminal and file.
+2025/09/19 20:37:41 redisClient.go:28: ✅ Connected to Redis
+2025/09/19 20:37:42 server.go:54: [INFO] Initializing server...
+2025/09/19 20:37:42 server.go:67: [INFO] Setting up router...
+2025/09/19 20:37:42 server.go:104: [INFO] All routes have been auto-seeded to database
+2025/09/19 20:37:42 server.go:69: [INFO] Router setup completed.
+2025/09/19 20:37:42 server.go:110: [INFO] Starting server at 0.0.0.0:8888...
+2025/09/19 20:37:46 server.go:76: [DEBUG] Request to GET /api/v1/path-route
+2025/09/19 20:37:46 server.go:77: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Authorization:[Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhNzI3YjhlMS1hZTY2LTRhOTYtYTc2YS1iOTVkYjdhMGZjMmEiLCJlbWFpbCI6IndlbGxzQGdvbGFuZy5jb20iLCJyb2xlcyI6WyJBZG1pbiJdLCJwZXJtaXNzaW9ucyI6W3sibmFtZSI6IkFkbWluIiwiY2FuX2NyZWF0ZSI6dHJ1ZSwiY2FuX3JlYWQiOnRydWUsImNhbl91cGRhdGUiOnRydWUsImNhbl9kZWxldGUiOnRydWUsImNhbl9leHBvcnQiOnRydWUsImNhbl9pbXBvcnQiOnRydWUsImNhbl92aWV3Ijp0cnVlfV0sImlzcyI6IndlbGxzLWFwaSIsImV4cCI6MTc1ODM3NDUzOCwiaWF0IjoxNzU4Mjg4MTM4fQ.I6MltHZ7hNjlV-4hEDPl6JABy0qXbmz2gk64u3fT-Xo] Connection:[keep-alive] Content-Type:[application/json] Postman-Token:[22630499-3780-48ec-862f-394e83b0ef97] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/19 20:39:46 server.go:43: [INFO] Logging initialized. Outputting to terminal and file.
+2025/09/19 20:39:46 redisClient.go:28: ✅ Connected to Redis
+2025/09/19 20:39:47 server.go:54: [INFO] Initializing server...
+2025/09/19 20:39:47 server.go:67: [INFO] Setting up router...
+2025/09/19 20:39:47 server.go:104: [INFO] All routes have been auto-seeded to database
+2025/09/19 20:39:47 server.go:69: [INFO] Router setup completed.
+2025/09/19 20:39:47 server.go:110: [INFO] Starting server at 0.0.0.0:8888...
+2025/09/19 20:39:51 server.go:76: [DEBUG] Request to GET /api/v1/path-route
+2025/09/19 20:39:51 server.go:77: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Authorization:[Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhNzI3YjhlMS1hZTY2LTRhOTYtYTc2YS1iOTVkYjdhMGZjMmEiLCJlbWFpbCI6IndlbGxzQGdvbGFuZy5jb20iLCJyb2xlcyI6WyJBZG1pbiJdLCJwZXJtaXNzaW9ucyI6W3sibmFtZSI6IkFkbWluIiwiY2FuX2NyZWF0ZSI6dHJ1ZSwiY2FuX3JlYWQiOnRydWUsImNhbl91cGRhdGUiOnRydWUsImNhbl9kZWxldGUiOnRydWUsImNhbl9leHBvcnQiOnRydWUsImNhbl9pbXBvcnQiOnRydWUsImNhbl92aWV3Ijp0cnVlfV0sImlzcyI6IndlbGxzLWFwaSIsImV4cCI6MTc1ODM3NDUzOCwiaWF0IjoxNzU4Mjg4MTM4fQ.I6MltHZ7hNjlV-4hEDPl6JABy0qXbmz2gk64u3fT-Xo] Connection:[keep-alive] Content-Type:[application/json] Postman-Token:[4a2b00a4-4371-4a55-a483-9f75f81dff81] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/19 20:39:56 server.go:76: [DEBUG] Request to GET /api/v1/path-route
+2025/09/19 20:39:56 server.go:77: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Authorization:[Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhNzI3YjhlMS1hZTY2LTRhOTYtYTc2YS1iOTVkYjdhMGZjMmEiLCJlbWFpbCI6IndlbGxzQGdvbGFuZy5jb20iLCJyb2xlcyI6WyJBZG1pbiJdLCJwZXJtaXNzaW9ucyI6W3sibmFtZSI6IkFkbWluIiwiY2FuX2NyZWF0ZSI6dHJ1ZSwiY2FuX3JlYWQiOnRydWUsImNhbl91cGRhdGUiOnRydWUsImNhbl9kZWxldGUiOnRydWUsImNhbl9leHBvcnQiOnRydWUsImNhbl9pbXBvcnQiOnRydWUsImNhbl92aWV3Ijp0cnVlfV0sImlzcyI6IndlbGxzLWFwaSIsImV4cCI6MTc1ODM3NDUzOCwiaWF0IjoxNzU4Mjg4MTM4fQ.I6MltHZ7hNjlV-4hEDPl6JABy0qXbmz2gk64u3fT-Xo] Connection:[keep-alive] Content-Type:[application/json] Postman-Token:[ca0da7f5-369a-427d-a564-9de424cd4d73] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/19 20:41:56 server.go:43: [INFO] Logging initialized. Outputting to terminal and file.
+2025/09/19 20:41:56 redisClient.go:28: ✅ Connected to Redis
+2025/09/19 20:41:56 server.go:54: [INFO] Initializing server...
+2025/09/19 20:41:56 server.go:67: [INFO] Setting up router...
+2025/09/19 20:41:56 server.go:104: [INFO] All routes have been auto-seeded to database
+2025/09/19 20:41:56 server.go:69: [INFO] Router setup completed.
+2025/09/19 20:41:56 server.go:110: [INFO] Starting server at 0.0.0.0:8888...
+2025/09/19 20:42:00 server.go:76: [DEBUG] Request to GET /api/v1/path-route
+2025/09/19 20:42:00 server.go:77: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Authorization:[Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhNzI3YjhlMS1hZTY2LTRhOTYtYTc2YS1iOTVkYjdhMGZjMmEiLCJlbWFpbCI6IndlbGxzQGdvbGFuZy5jb20iLCJyb2xlcyI6WyJBZG1pbiJdLCJwZXJtaXNzaW9ucyI6W3sibmFtZSI6IkFkbWluIiwiY2FuX2NyZWF0ZSI6dHJ1ZSwiY2FuX3JlYWQiOnRydWUsImNhbl91cGRhdGUiOnRydWUsImNhbl9kZWxldGUiOnRydWUsImNhbl9leHBvcnQiOnRydWUsImNhbl9pbXBvcnQiOnRydWUsImNhbl92aWV3Ijp0cnVlfV0sImlzcyI6IndlbGxzLWFwaSIsImV4cCI6MTc1ODM3NDUzOCwiaWF0IjoxNzU4Mjg4MTM4fQ.I6MltHZ7hNjlV-4hEDPl6JABy0qXbmz2gk64u3fT-Xo] Connection:[keep-alive] Content-Type:[application/json] Postman-Token:[6cc7b5c4-f0ff-4f29-900a-e11114397f46] User-Agent:[PostmanRuntime/7.46.1]]
+2025/09/19 20:42:24 server.go:76: [DEBUG] Request to GET /api/v1/path-route
+2025/09/19 20:42:24 server.go:77: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Authorization:[Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhNzI3YjhlMS1hZTY2LTRhOTYtYTc2YS1iOTVkYjdhMGZjMmEiLCJlbWFpbCI6IndlbGxzQGdvbGFuZy5jb20iLCJyb2xlcyI6WyJBZG1pbiJdLCJwZXJtaXNzaW9ucyI6W3sibmFtZSI6IkFkbWluIiwiY2FuX2NyZWF0ZSI6dHJ1ZSwiY2FuX3JlYWQiOnRydWUsImNhbl91cGRhdGUiOnRydWUsImNhbl9kZWxldGUiOnRydWUsImNhbl9leHBvcnQiOnRydWUsImNhbl9pbXBvcnQiOnRydWUsImNhbl92aWV3Ijp0cnVlfV0sImlzcyI6IndlbGxzLWFwaSIsImV4cCI6MTc1ODM3NDUzOCwiaWF0IjoxNzU4Mjg4MTM4fQ.I6MltHZ7hNjlV-4hEDPl6JABy0qXbmz2gk64u3fT-Xo] Connection:[keep-alive] Content-Type:[application/json] Postman-Token:[70dc4d8c-c25e-4dd3-91b0-02419c31c7c1] User-Agent:[PostmanRuntime/7.46.1]]

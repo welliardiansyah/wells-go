@@ -4,6 +4,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"net/http"
 	"strconv"
+	"wells-go/application/mappers"
 	"wells-go/application/usecases"
 	"wells-go/response"
 )
@@ -40,12 +41,7 @@ func (h *PathRouteHandler) GetAllRoutes(c *gin.Context) {
 		response.ErrorResponse(c.Writer, http.StatusInternalServerError, "Failed to fetch routes", err.Error())
 		return
 	}
+	paging := mappers.ToPagingResponseFlat(routes, page, limit, total)
 
-	response.SuccessResponse(c.Writer, "Routes fetched successfully", gin.H{
-		"data":       routes,
-		"page":       page,
-		"limit":      limit,
-		"total":      total,
-		"totalPages": (total + int64(limit) - 1) / int64(limit),
-	})
+	response.SuccessResponsePaging(c.Writer, "Routes fetched successfully", paging)
 }

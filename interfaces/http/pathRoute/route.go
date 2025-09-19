@@ -17,7 +17,7 @@ func RoutePathRoute(db *gorm.DB, router *gin.RouterGroup, cfg *config.Config, ma
 	controller := NewPathRouteHandler(usecase)
 
 	// Protected route group
-	protected := router.Group("/api/v1/path-route")
+	protected := router.Group("/path-route")
 	protected.Use(middleware.AuthMiddleware(maker))
 	protected.Use(middleware.RoleAndPermissionMiddlewareDynamic(repoAccess))
 

@@ -88,7 +88,7 @@ func (server *Server) setupRouter() {
 	// ====================================================================================
 	// Routes Group
 	// ====================================================================================
-	publicRoutes := router.Group("")
+	publicRoutes := router.Group("/api/v1")
 
 	users.RouteUsers(server.DB, publicRoutes, server.Config, server.Security)
 	role.RouteRoles(server.DB, publicRoutes, server.Config, server.Security)
@@ -97,7 +97,7 @@ func (server *Server) setupRouter() {
 	pathRoute.RoutePathRoute(server.DB, publicRoutes, server.Config, server.Security)
 
 	// ====================================================================================
-	// Autoseed Routes in Database
+	// Autoscaled Routes in Database
 	// ====================================================================================
 	routeRepo := persistence.NewPathRouteRepositoryImpl(server.DB)
 	middleware.SeedAllRoutesFromRouter(router, routeRepo)

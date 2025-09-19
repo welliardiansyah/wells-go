@@ -19,11 +19,11 @@ func RouteUsers(db *gorm.DB, router *gin.RouterGroup, cfg *config.Config, maker 
 	controller := NewUserController(usecase)
 
 	// Public routes
-	router.POST("/api/v1/users/register", controller.Register)
-	router.POST("/api/v1/users/login", controller.Login)
+	router.POST("/users/register", controller.Register)
+	router.POST("/users/login", controller.Login)
 
 	// Protected routes (JWT middleware)
-	protected := router.Group("/api/v1/users")
+	protected := router.Group("/users")
 	protected.Use(middleware.AuthMiddleware(maker))
 	protected.Use(middleware.RoleAndPermissionMiddlewareDynamic(repoAccess))
 
