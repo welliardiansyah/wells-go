@@ -1,0 +1,23 @@
+2025/09/24 18:52:21 server.go:43: [INFO] Logging initialized. Outputting to terminal and file.
+2025/09/24 18:52:21 redisClient.go:28: ✅ Connected to Redis
+2025/09/24 18:52:22 server.go:54: [INFO] Initializing server...
+2025/09/24 18:52:22 server.go:67: [INFO] Setting up router...
+2025/09/24 18:52:22 server.go:104: [INFO] All routes have been auto-seeded to database
+2025/09/24 18:52:22 server.go:69: [INFO] Router setup completed.
+2025/09/24 18:52:22 server.go:110: [INFO] Starting server at 0.0.0.0:8888...
+2025/09/24 18:53:12 server.go:76: [DEBUG] Request to GET /api/v1/path-route
+2025/09/24 18:53:12 server.go:77: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Authorization:[Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhNzI3YjhlMS1hZTY2LTRhOTYtYTc2YS1iOTVkYjdhMGZjMmEiLCJlbWFpbCI6IndlbGxzQGdvbGFuZy5jb20iLCJyb2xlcyI6WyJBZG1pbiJdLCJwZXJtaXNzaW9ucyI6W3sibmFtZSI6IkFkbWluIiwiY2FuX2NyZWF0ZSI6dHJ1ZSwiY2FuX3JlYWQiOnRydWUsImNhbl91cGRhdGUiOnRydWUsImNhbl9kZWxldGUiOnRydWUsImNhbl9leHBvcnQiOnRydWUsImNhbl9pbXBvcnQiOnRydWUsImNhbl92aWV3Ijp0cnVlfV0sImlzcyI6IndlbGxzLWFwaSIsImV4cCI6MTc1ODM3NDUzOCwiaWF0IjoxNzU4Mjg4MTM4fQ.I6MltHZ7hNjlV-4hEDPl6JABy0qXbmz2gk64u3fT-Xo] Connection:[keep-alive] Content-Type:[application/json] Postman-Token:[86828718-c57d-4553-ab45-8488c123e73a] User-Agent:[PostmanRuntime/7.47.1]]
+2025/09/24 18:53:27 server.go:76: [DEBUG] Request to POST /api/v1/users/login
+2025/09/24 18:53:27 server.go:77: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Connection:[keep-alive] Content-Length:[69] Content-Type:[application/json] Postman-Token:[f4956ca2-f289-4a25-bf04-29ddb1b397e5] User-Agent:[PostmanRuntime/7.47.1]]
+2025/09/24 18:53:42 server.go:76: [DEBUG] Request to GET /api/v1/path-route
+2025/09/24 18:53:42 server.go:77: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Authorization:[Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhNzI3YjhlMS1hZTY2LTRhOTYtYTc2YS1iOTVkYjdhMGZjMmEiLCJlbWFpbCI6IndlbGxzQGdvbGFuZy5jb20iLCJyb2xlcyI6WyJBZG1pbiJdLCJwZXJtaXNzaW9ucyI6W3sibmFtZSI6IkFkbWluIiwiY2FuX2NyZWF0ZSI6dHJ1ZSwiY2FuX3JlYWQiOnRydWUsImNhbl91cGRhdGUiOnRydWUsImNhbl9kZWxldGUiOnRydWUsImNhbl9leHBvcnQiOnRydWUsImNhbl9pbXBvcnQiOnRydWUsImNhbl92aWV3Ijp0cnVlfV0sImlzcyI6IndlbGxzLWFwaSIsImV4cCI6MTc1ODgwMTIwNywiaWF0IjoxNzU4NzE0ODA3fQ.wJ9hCjbW0sOQYg52iMRSO9QHon1flKNfwPDpICfMo4k] Connection:[keep-alive] Content-Type:[application/json] Postman-Token:[859d565c-b5ad-4ca8-ae6d-264872766923] User-Agent:[PostmanRuntime/7.47.1]]
+2025/09/24 18:53:54 server.go:76: [DEBUG] Request to GET /api/v1/path-route
+2025/09/24 18:53:54 server.go:77: [DEBUG] Headers: map[Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Authorization:[Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhNzI3YjhlMS1hZTY2LTRhOTYtYTc2YS1iOTVkYjdhMGZjMmEiLCJlbWFpbCI6IndlbGxzQGdvbGFuZy5jb20iLCJyb2xlcyI6WyJBZG1pbiJdLCJwZXJtaXNzaW9ucyI6W3sibmFtZSI6IkFkbWluIiwiY2FuX2NyZWF0ZSI6dHJ1ZSwiY2FuX3JlYWQiOnRydWUsImNhbl91cGRhdGUiOnRydWUsImNhbl9kZWxldGUiOnRydWUsImNhbl9leHBvcnQiOnRydWUsImNhbl9pbXBvcnQiOnRydWUsImNhbl92aWV3Ijp0cnVlfV0sImlzcyI6IndlbGxzLWFwaSIsImV4cCI6MTc1ODgwMTIwNywiaWF0IjoxNzU4NzE0ODA3fQ.wJ9hCjbW0sOQYg52iMRSO9QHon1flKNfwPDpICfMo4k] Connection:[keep-alive] Content-Type:[application/json] Postman-Token:[9f09d798-e860-4c8e-94e4-d04013b47a3c] User-Agent:[PostmanRuntime/7.47.1]]
+2025/09/24 18:55:20 server.go:43: [INFO] Logging initialized. Outputting to terminal and file.
+2025/09/24 18:55:20 redisClient.go:28: ✅ Connected to Redis
+2025/09/24 18:55:21 server.go:54: [INFO] Initializing server...
+2025/09/24 18:55:21 server.go:67: [INFO] Setting up router...
+2025/09/24 18:55:21 server.go:104: [INFO] All routes have been auto-seeded to database
+2025/09/24 18:55:21 server.go:69: [INFO] Router setup completed.
+2025/09/24 18:55:21 server.go:110: [INFO] Starting server at 0.0.0.0:8888...
+2025/09/24 18:55:21 server.go:113: [ERROR] Failed to start server: listen tcp 0.0.0.0:8888: bind: address already in use
