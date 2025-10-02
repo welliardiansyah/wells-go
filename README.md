@@ -96,4 +96,4 @@ go mod tidy
 </ul>
 
 <h2 id="license">📄 License</h2>
-<p>MIT License - see <a href="https://github.com/welliardiansyah/wells-go/blob/master/LICENSE">LICENSE</a> file for details.</p>
+<p>MIT License - see <a href="https://github.com/welliardiansyah/wells-go/blob/master/LICENSE.md"</a> file for details.</p>
