@@ -2,6 +2,8 @@ package usecases
 
 import (
 	"github.com/google/uuid"
+	"wells-go/application/dtos"
+	"wells-go/application/mappers"
 	"wells-go/domain/entities"
 	"wells-go/domain/repositories"
 )
@@ -40,4 +42,18 @@ func (u *RouteAccessUsecase) GetAllByRole(role string) ([]entities.RouteAccessEn
 
 func (u *RouteAccessUsecase) GetAllByRoleName(roleName string) ([]entities.RouteAccessEntities, error) {
 	return u.repo.GetAllByRoleName(roleName)
+}
+
+func (u *RouteAccessUsecase) GetAllWithPagination(search string, limit, offset int) ([]dtos.RouteAccessResponse, int64, error) {
+	routes, total, err := u.repo.FindAllWithPagination(search, limit, offset)
+	if err != nil {
+		return nil, 0, err
+	}
+
+	res := make([]dtos.RouteAccessResponse, len(routes))
+	for i, r := range routes {
+		res[i] = mappers.ToRouteAccessResponse(&r)
+	}
+
+	return res, total, nil
 }

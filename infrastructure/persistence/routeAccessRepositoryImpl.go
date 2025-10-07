@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/google/uuid"
 	"gorm.io/gorm"
+	"strings"
 	"wells-go/domain/entities"
 	"wells-go/domain/repositories"
 )
@@ -67,4 +68,28 @@ func (r *RouteAccessRepositoryImpl) GetAllByRoleName(roleName string) ([]entitie
 	var routes []entities.RouteAccessEntities
 	err := r.db.Where("LOWER(role_name) = LOWER(?)", roleName).Find(&routes).Error
 	return routes, err
+}
+
+func (r *RouteAccessRepositoryImpl) FindAllWithPagination(search string, limit, offset int) ([]entities.RouteAccessEntities, int64, error) {
+	var routes []entities.RouteAccessEntities
+	var total int64
+
+	query := r.db.Model(&entities.RouteAccessEntities{})
+	if search != "" {
+		query = query.Where("LOWER(route_name) LIKE ?", "%"+strings.ToLower(search)+"%")
+	}
+
+	if err := query.Count(&total).Error; err != nil {
+		return nil, 0, err
+	}
+
+	if limit > 0 {
+		query = query.Limit(limit).Offset(offset)
+	}
+
+	if err := query.Order("created_at desc").Find(&routes).Error; err != nil {
+		return nil, 0, err
+	}
+
+	return routes, total, nil
 }

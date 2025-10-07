@@ -6,6 +6,16 @@ import (
 	"wells-go/domain/entities"
 )
 
+func ToRouteAccessResponse(e *entities.RouteAccessEntities) dtos.RouteAccessResponse {
+	return dtos.RouteAccessResponse{
+		ID:             e.ID.String(),
+		RoutePath:      e.RoutePath,
+		HTTPMethod:     e.HTTPMethod,
+		RoleName:       e.RoleName,
+		PermissionName: e.PermissionName,
+	}
+}
+
 func ToRouteAccessEntity(dto *dtos.RouteAccessRequestDTO) *entities.RouteAccessEntities {
 	return &entities.RouteAccessEntities{
 		ID:             uuid.New(),

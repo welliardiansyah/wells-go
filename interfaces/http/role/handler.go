@@ -2,6 +2,7 @@ package role
 
 import (
 	"net/http"
+	"strconv"
 	"wells-go/response"
 
 	"github.com/gin-gonic/gin"
@@ -35,13 +36,39 @@ func (h *RoleHandler) CreateRole(c *gin.Context) {
 }
 
 func (h *RoleHandler) GetAllRoles(c *gin.Context) {
+	pageStr := c.Query("page")
+	limitStr := c.Query("limit")
 
-	res, err := h.usecase.GetAllRoles()
+	page, _ := strconv.Atoi(pageStr)
+	limit, _ := strconv.Atoi(limitStr)
+	if page <= 0 {
+		page = 1
+	}
+	if limit <= 0 {
+		limit = 10
+	}
+	offset := (page - 1) * limit
+	search := c.Query("search")
+
+	roles, total, err := h.usecase.GetAllRolesWithPagination(search, limit, offset)
 	if err != nil {
 		response.ErrorResponse(c.Writer, http.StatusInternalServerError, "Failed to fetch roles", err.Error())
 		return
 	}
-	response.SuccessResponse(c.Writer, "Roles retrieved successfully", res)
+
+	var res []*dtos.RoleResponse
+	for _, r := range roles {
+		res = append(res, r)
+	}
+
+	paging := dtos.PagingResponseFlat[*dtos.RoleResponse]{
+		Page:  page,
+		Limit: limit,
+		Total: total,
+		Data:  res,
+	}
+
+	response.SuccessResponsePaging(c.Writer, "Roles fetched successfully", paging)
 }
 
 func (h *RoleHandler) GetRoleByID(c *gin.Context) {

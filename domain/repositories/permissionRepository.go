@@ -12,4 +12,5 @@ type PermissionRepository interface {
 	FindByIDs(ids []uuid.UUID) ([]entities.PermissionEntity, error)
 	FindByID(id string) (*entities.PermissionEntity, error)
 	FindAll() ([]entities.PermissionEntity, error)
+	FindAllWithPagination(search string, limit, offset int) ([]entities.PermissionEntity, int64, error)
 }

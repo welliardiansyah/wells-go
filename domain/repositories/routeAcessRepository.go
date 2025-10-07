@@ -14,4 +14,5 @@ type RouteAccessRepository interface {
 	Delete(id uuid.UUID) error
 	GetAllByRole(role string) ([]entities.RouteAccessEntities, error)
 	GetAllByRoleName(roleName string) ([]entities.RouteAccessEntities, error)
+	FindAllWithPagination(search string, limit, offset int) ([]entities.RouteAccessEntities, int64, error)
 }

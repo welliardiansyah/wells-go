@@ -4,6 +4,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/google/uuid"
 	"net/http"
+	"strconv"
 	"wells-go/application/dtos"
 	"wells-go/application/mappers"
 	"wells-go/application/usecases"
@@ -20,12 +21,34 @@ func NewRouteAccessHandler(usecase *usecases.RouteAccessUsecase) *RouteAccessHan
 }
 
 func (h *RouteAccessHandler) GetAll(c *gin.Context) {
-	data, err := h.usecase.GetAll()
+	pageStr := c.Query("page")
+	limitStr := c.Query("limit")
+
+	page, _ := strconv.Atoi(pageStr)
+	limit, _ := strconv.Atoi(limitStr)
+	if page <= 0 {
+		page = 1
+	}
+	if limit <= 0 {
+		limit = 10
+	}
+	offset := (page - 1) * limit
+	search := c.Query("search")
+
+	data, total, err := h.usecase.GetAllWithPagination(search, limit, offset)
 	if err != nil {
 		response.ErrorResponse(c.Writer, http.StatusInternalServerError, err.Error(), nil)
 		return
 	}
-	response.SuccessResponse(c.Writer, "Get route access successfully", data)
+
+	paging := dtos.PagingResponseFlat[dtos.RouteAccessResponse]{
+		Page:  page,
+		Limit: limit,
+		Total: total,
+		Data:  data,
+	}
+
+	response.SuccessResponsePaging(c.Writer, "Route access fetched successfully", paging)
 }
 
 func (h *RouteAccessHandler) GetByID(c *gin.Context) {

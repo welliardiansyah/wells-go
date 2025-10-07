@@ -49,3 +49,27 @@ func (r *PermissionRepositoryImpl) FindByIDs(ids []uuid.UUID) ([]entities.Permis
 	err := r.db.Where("id IN ?", ids).Find(&permissions).Error
 	return permissions, err
 }
+
+func (r *PermissionRepositoryImpl) FindAllWithPagination(search string, limit, offset int) ([]entities.PermissionEntity, int64, error) {
+	var permissions []entities.PermissionEntity
+	var total int64
+
+	query := r.db.Model(&entities.PermissionEntity{})
+	if search != "" {
+		query = query.Where("name LIKE ?", "%"+search+"%")
+	}
+
+	if err := query.Count(&total).Error; err != nil {
+		return nil, 0, err
+	}
+
+	if limit > 0 {
+		query = query.Limit(limit).Offset(offset)
+	}
+
+	if err := query.Order("created_at desc").Find(&permissions).Error; err != nil {
+		return nil, 0, err
+	}
+
+	return permissions, total, nil
+}

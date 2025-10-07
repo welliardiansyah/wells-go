@@ -12,4 +12,5 @@ type UserRepository interface {
 	Update(user *entities.UserEntity) error
 	Delete(id uuid.UUID) error
 	List() ([]entities.UserEntity, error)
+	ListWithPagination(search string, limit, offset int) ([]entities.UserEntity, int64, error)
 }

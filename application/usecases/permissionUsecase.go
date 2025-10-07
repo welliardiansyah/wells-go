@@ -7,23 +7,15 @@ import (
 	"wells-go/domain/repositories"
 )
 
-type PermissionUsecase interface {
-	Create(req dtos.CreatePermissionRequest) (dtos.PermissionResponse, error)
-	Update(id string, req dtos.UpdatePermissionRequest) (dtos.PermissionResponse, error)
-	Delete(id string) error
-	FindByID(id string) (dtos.PermissionResponse, error)
-	FindAll() ([]dtos.PermissionResponse, error)
-}
-
-type permissionUsecase struct {
+type PermissionUsecase struct {
 	repo repositories.PermissionRepository
 }
 
-func NewPermissionUsecase(repo repositories.PermissionRepository) PermissionUsecase {
-	return &permissionUsecase{repo}
+func NewPermissionUsecase(repo repositories.PermissionRepository) *PermissionUsecase {
+	return &PermissionUsecase{repo: repo}
 }
 
-func (u *permissionUsecase) Create(req dtos.CreatePermissionRequest) (dtos.PermissionResponse, error) {
+func (u *PermissionUsecase) Create(req dtos.CreatePermissionRequest) (dtos.PermissionResponse, error) {
 	permission := entities.PermissionEntity{
 		Name:      req.Name,
 		CanCreate: req.CanCreate,
@@ -40,7 +32,7 @@ func (u *permissionUsecase) Create(req dtos.CreatePermissionRequest) (dtos.Permi
 	return mappers.ToPermissionResponse(permission), nil
 }
 
-func (u *permissionUsecase) Update(id string, req dtos.UpdatePermissionRequest) (dtos.PermissionResponse, error) {
+func (u *PermissionUsecase) Update(id string, req dtos.UpdatePermissionRequest) (dtos.PermissionResponse, error) {
 	permission, err := u.repo.FindByID(id)
 	if err != nil {
 		return dtos.PermissionResponse{}, err
@@ -60,11 +52,11 @@ func (u *permissionUsecase) Update(id string, req dtos.UpdatePermissionRequest) 
 	return mappers.ToPermissionResponse(*permission), nil
 }
 
-func (u *permissionUsecase) Delete(id string) error {
+func (u *PermissionUsecase) Delete(id string) error {
 	return u.repo.Delete(id)
 }
 
-func (u *permissionUsecase) FindByID(id string) (dtos.PermissionResponse, error) {
+func (u *PermissionUsecase) FindByID(id string) (dtos.PermissionResponse, error) {
 	permission, err := u.repo.FindByID(id)
 	if err != nil {
 		return dtos.PermissionResponse{}, err
@@ -72,10 +64,24 @@ func (u *permissionUsecase) FindByID(id string) (dtos.PermissionResponse, error)
 	return mappers.ToPermissionResponse(*permission), nil
 }
 
-func (u *permissionUsecase) FindAll() ([]dtos.PermissionResponse, error) {
+func (u *PermissionUsecase) FindAll() ([]dtos.PermissionResponse, error) {
 	permissions, err := u.repo.FindAll()
 	if err != nil {
 		return nil, err
 	}
 	return mappers.ToPermissionResponseList(permissions), nil
+}
+
+func (u *PermissionUsecase) FindAllWithPagination(search string, limit, offset int) ([]dtos.PermissionResponse, int64, error) {
+	permissions, total, err := u.repo.FindAllWithPagination(search, limit, offset)
+	if err != nil {
+		return nil, 0, err
+	}
+
+	res := make([]dtos.PermissionResponse, len(permissions))
+	for i, p := range permissions {
+		res[i] = mappers.ToPermissionResponse(p)
+	}
+
+	return res, total, nil
 }

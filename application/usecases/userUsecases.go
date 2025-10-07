@@ -217,3 +217,7 @@ func (uc *UserUsecase) DeleteUser(id string) error {
 	}
 	return uc.repo.Delete(uid)
 }
+
+func (uc *UserUsecase) GetUsersWithPagination(search string, limit, offset int) ([]entities.UserEntity, int64, error) {
+	return uc.repo.ListWithPagination(search, limit, offset)
+}

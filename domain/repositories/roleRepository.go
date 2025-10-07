@@ -11,4 +11,5 @@ type RoleRepository interface {
 	FindByID(id uuid.UUID) (*entities.RoleEntity, error)
 	Update(role *entities.RoleEntity) error
 	Delete(id uuid.UUID) error
+	FindAllWithPagination(search string, limit, offset int) ([]entities.RoleEntity, int64, error)
 }

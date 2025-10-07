@@ -41,3 +41,27 @@ func (r *RoleRepositoryImpl) Update(role *entities.RoleEntity) error {
 func (r *RoleRepositoryImpl) Delete(id uuid.UUID) error {
 	return r.db.Delete(&entities.RoleEntity{}, "id = ?", id).Error
 }
+
+func (r *RoleRepositoryImpl) FindAllWithPagination(search string, limit, offset int) ([]entities.RoleEntity, int64, error) {
+	var roles []entities.RoleEntity
+	var total int64
+
+	query := r.db.Model(&entities.RoleEntity{}).Preload("Permissions")
+	if search != "" {
+		query = query.Where("name LIKE ?", "%"+search+"%")
+	}
+
+	if err := query.Count(&total).Error; err != nil {
+		return nil, 0, err
+	}
+
+	if limit > 0 {
+		query = query.Limit(limit).Offset(offset)
+	}
+
+	if err := query.Order("created_at desc").Find(&roles).Error; err != nil {
+		return nil, 0, err
+	}
+
+	return roles, total, nil
+}

@@ -4,8 +4,10 @@ import (
 	"context"
 	"github.com/gin-gonic/gin"
 	"net/http"
+	"strconv"
 	"strings"
 	"wells-go/application/dtos"
+	"wells-go/application/mappers"
 	"wells-go/application/usecases"
 	"wells-go/infrastructure/redis"
 	"wells-go/response"
@@ -52,13 +54,41 @@ func (ctl *UserController) Login(c *gin.Context) {
 }
 
 func (ctl *UserController) GetUsers(c *gin.Context) {
+	pageStr := c.Query("page")
+	limitStr := c.Query("limit")
 
-	users, err := ctl.usecase.GetUsers()
+	page, _ := strconv.Atoi(pageStr)
+	limit, _ := strconv.Atoi(limitStr)
+
+	if page <= 0 {
+		page = 1
+	}
+	if limit <= 0 {
+		limit = 10
+	}
+
+	offset := (page - 1) * limit
+	search := c.Query("search")
+
+	users, total, err := ctl.usecase.GetUsersWithPagination(search, limit, offset)
 	if err != nil {
 		response.ErrorResponse(c.Writer, http.StatusInternalServerError, "failed to fetch users", err.Error())
 		return
 	}
-	response.SuccessResponse(c.Writer, "list of users", users)
+
+	var res []dtos.UserResponse
+	for _, u := range users {
+		res = append(res, mappers.ToUserResponse(&u))
+	}
+
+	paging := dtos.PagingResponseFlat[dtos.UserResponse]{
+		Page:  page,
+		Limit: limit,
+		Total: total,
+		Data:  res,
+	}
+
+	response.SuccessResponsePaging(c.Writer, "users fetched successfully", paging)
 }
 
 func (ctl *UserController) GetUserByID(c *gin.Context) {

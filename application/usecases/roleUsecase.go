@@ -83,3 +83,17 @@ func (u *RoleUsecase) UpdateRole(id uuid.UUID, req dtos.UpdateRoleRequest) (*dto
 func (u *RoleUsecase) DeleteRole(id uuid.UUID) error {
 	return u.repo.Delete(id)
 }
+
+func (u *RoleUsecase) GetAllRolesWithPagination(search string, limit, offset int) ([]*dtos.RoleResponse, int64, error) {
+	roles, total, err := u.repo.FindAllWithPagination(search, limit, offset)
+	if err != nil {
+		return nil, 0, err
+	}
+
+	var res []*dtos.RoleResponse
+	for _, r := range roles {
+		res = append(res, mappers.ToRoleResponse(&r))
+	}
+
+	return res, total, nil
+}
