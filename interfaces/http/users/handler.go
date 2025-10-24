@@ -2,7 +2,6 @@ package users
 
 import (
 	"context"
-	"github.com/gin-gonic/gin"
 	"net/http"
 	"strconv"
 	"strings"
@@ -11,6 +10,8 @@ import (
 	"wells-go/application/usecases"
 	"wells-go/infrastructure/redis"
 	"wells-go/response"
+
+	"github.com/gin-gonic/gin"
 )
 
 type UserController struct {
@@ -103,9 +104,8 @@ func (ctl *UserController) GetUserByID(c *gin.Context) {
 }
 
 func (ctl *UserController) UpdateUser(c *gin.Context) {
-
 	id := c.Param("id")
-	var req dtos.RegisterUserRequest
+	var req dtos.UpdateUserRequest
 	if err := c.ShouldBindJSON(&req); err != nil {
 		response.ErrorResponse(c.Writer, http.StatusBadRequest, "invalid request body", err.Error())
 		return
@@ -113,9 +113,10 @@ func (ctl *UserController) UpdateUser(c *gin.Context) {
 
 	user, err := ctl.usecase.UpdateUser(id, req)
 	if err != nil {
-		response.ErrorResponse(c.Writer, http.StatusInternalServerError, "failed to update user", err.Error())
+		response.ErrorResponse(c.Writer, http.StatusBadRequest, "failed to update user", err.Error())
 		return
 	}
+
 	response.SuccessResponse(c.Writer, "user updated successfully", user)
 }
 

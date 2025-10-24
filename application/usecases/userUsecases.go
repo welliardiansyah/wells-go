@@ -148,7 +148,7 @@ func (uc *UserUsecase) GetUserByID(id string) (dtos.UserResponse, error) {
 	return mappers.ToUserResponse(user), nil
 }
 
-func (uc *UserUsecase) UpdateUser(id string, req dtos.RegisterUserRequest) (dtos.UserResponse, error) {
+func (uc *UserUsecase) UpdateUser(id string, req dtos.UpdateUserRequest) (dtos.UserResponse, error) {
 	uid, err := uuid.Parse(id)
 	if err != nil {
 		return dtos.UserResponse{}, errors.New("invalid id format")
@@ -163,20 +163,28 @@ func (uc *UserUsecase) UpdateUser(id string, req dtos.RegisterUserRequest) (dtos
 		if req.OldPassword == "" {
 			return dtos.UserResponse{}, errors.New("old password wajib diisi")
 		}
+
 		if err := bcrypt.CompareHashAndPassword([]byte(user.Password), []byte(req.OldPassword)); err != nil {
 			return dtos.UserResponse{}, errors.New("old password salah")
 		}
+
 		if req.Password != req.ConfirmPassword {
 			return dtos.UserResponse{}, errors.New("password dan konfirmasi password tidak sama")
 		}
+
 		if req.Password == strings.ToLower(req.Password) {
 			return dtos.UserResponse{}, errors.New("password harus kombinasi huruf besar/kecil/angka/simbol")
 		}
+
 		if bcrypt.CompareHashAndPassword([]byte(user.Password), []byte(req.Password)) == nil {
 			return dtos.UserResponse{}, errors.New("password baru tidak boleh sama dengan lama")
 		}
 
-		hash, _ := bcrypt.GenerateFromPassword([]byte(req.Password), bcrypt.DefaultCost)
+		hash, err := bcrypt.GenerateFromPassword([]byte(req.Password), bcrypt.DefaultCost)
+		if err != nil {
+			return dtos.UserResponse{}, errors.New("gagal mengenkripsi password baru")
+		}
+
 		user.Password = string(hash)
 	}
 
@@ -186,9 +194,6 @@ func (uc *UserUsecase) UpdateUser(id string, req dtos.RegisterUserRequest) (dtos
 	if req.Email != "" {
 		user.Email = req.Email
 	}
-	//if req.Phone != "" {
-	//	user.Phone = req.Phone
-	//}
 	if req.Role != "" {
 		roleID, err := uuid.Parse(req.Role)
 		if err != nil {
@@ -204,7 +209,7 @@ func (uc *UserUsecase) UpdateUser(id string, req dtos.RegisterUserRequest) (dtos
 
 	user.UpdatedAt = time.Now()
 	if err := uc.repo.Update(user); err != nil {
-		return dtos.UserResponse{}, err
+		return dtos.UserResponse{}, errors.New("failed to update user")
 	}
 
 	return mappers.ToUserResponse(user), nil

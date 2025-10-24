@@ -22,3 +22,12 @@ type RegisterUserRequest struct {
 	ConfirmPassword string `json:"confirm_password" binding:"required,min=6"`
 	Role            string `json:"role"`
 }
+
+type UpdateUserRequest struct {
+	Name            string `json:"name" binding:"required"`
+	Email           string `json:"email" binding:"required"`
+	OldPassword     string `json:"old_password" binding:"required"`
+	Password        string `json:"password" binding:"required"`
+	ConfirmPassword string `json:"confirm_password" binding:"required"`
+	Role            string `json:"role" binding:"required"`
+}
